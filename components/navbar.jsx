@@ -60,10 +60,11 @@ export const Navbar = () => {
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
-                className={[clsx(
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
                   "data-[active=true]:text-primary data-[active=true]:font-medium",
-                ), 'text-green-600']}
-                color="green"
+                )}
+                color="foreground"
                 href={item.href}
               >
                 {item.label}
