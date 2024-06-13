@@ -30,10 +30,10 @@ function CarrosalView() {
                         </IsVisibleComponent>
                     </div>
                     <div className="embla__slide">
-                            <div className="flex justify-center bg-slate-100 py-10">
-                            <IsVisibleComponent>
-                                    <div className="pop-up"><Logo size={400} style={{ width: '100%', height: '60vh' }} /></div>
-                            </IsVisibleComponent>
+                            <div className="flex justify-center bg-slate-100 items-center" style={{ width: '100%', height: '60vh' }} >
+                                <IsVisibleComponent>
+                                    <div className="pop-up"><Logo size={400} /></div>
+                                </IsVisibleComponent>
                             </div>
                     </div>
                     <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundImage: `url(${image2})` }} >
