@@ -26,3 +26,125 @@ body {
     text-wrap: balance;
   }
 }
+
+.main-area-marquee-fade {
+  animation: 4s fade-in;
+}
+
+.fade {
+  animation: 1s fade-in;
+}
+
+/*Animations*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pop-down {
+  animation: popDown 0.5s ease;
+}
+
+.pop-right {
+  animation: popRight 0.5s ease;
+}
+
+.pop-left {
+  animation: popLeft 0.5s ease;
+}
+
+.pop-up {
+  animation: popUp 0.5s ease;
+}
+
+@keyframes popRight {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popLeft {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes popDown {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popUp {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.lds-dual-ring {
+display: inline-block;
+width: 20px;
+height: 20px;
+left: 0;
+}
+.lds-dual-ring:after {
+content: " ";
+display: block;
+width: 24px;
+height: 24px;
+/* margin: 8px; */
+border-radius: 50%;
+border: 4px solid #fff;
+border-color: #fff transparent #fff transparent;
+animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}

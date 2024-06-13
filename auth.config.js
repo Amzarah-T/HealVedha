@@ -8,7 +8,7 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user;
       // Initialize protected routes
       // Here, all routes except the login page is protected
-      const publicPaths = ['/login', '/about', '/blog']; // Add all public paths here
+      const publicPaths = ['/login', '/about', '/blog', '/services', '/explore']; // Add all public paths here
 
         // Initialize protected routes
         // Check if the current path is in the list of public paths
