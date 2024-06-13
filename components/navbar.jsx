@@ -25,6 +25,7 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import { User } from "@nextui-org/react";
 
 export const Navbar = () => {
   const searchInput = (
@@ -85,9 +86,10 @@ export const Navbar = () => {
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
             <DiscordIcon className="text-default-500" />
           </Link>
-          <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-            <GithubIcon className="text-default-500" />
-          </Link> */}
+          */}
+          <Link aria-label="Github" href={siteConfig.links.login}>
+            <User className="text-default-500" />
+          </Link> 
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
