@@ -7,8 +7,25 @@ import CarrosalView from "@/components/carrosal";
 import IsVisibleComponent from "@/components/isVisibleComponent";
 import Image from "next/image";
 import image from '@/public/images/common.jpeg';
+import axios from "axios";
 
-export default function Home() {
+async function getData() {
+  const res = await axios.get('/api/welcome');
+ 
+  console.log('....response', res)
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
+export default async function Home() {
+  const data = await getData()
+  console.log('printin data', data);
+
   return (
     <main className="">
       <div className="text-foreground pop-up">
