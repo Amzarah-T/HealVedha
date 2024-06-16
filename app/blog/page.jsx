@@ -1,9 +1,10 @@
 import { title } from "@/components/primitives";
 import { model } from "@/models";
+import Image from "next/image";
 
 async function getData() {
   try {
-    const result = await model.Post.findAll({incude: model.User});
+    const result = await model.Post.findAll({ incude: model.User });
 
     return result;
   } catch (error) {
@@ -12,12 +13,25 @@ async function getData() {
 }
 
 export default async function BlogPage() {
-  const data = await getData();
+  const posts = await getData();
 
   return (
     <div>
-      <h1 className="text-foreground text-3xl">Blog</h1>
-      <h1 className="text-foreground text-3xl">{data.length}</h1>
+      <div className="max-w-4xl mx-auto p-6">
+        <h1 className="text-4xl font-bold mb-6 text-center">Blog Posts</h1>
+        <ul className="space-y-6 flex gap-10">
+          {posts.map((post) => (
+            <li key={post.id} className="p-6 bg-white rounded-lg shadow-md w-full">
+              <div
+                className="h-64 bg-cover bg-center"
+                style={{ backgroundImage: `url(${post.image})` }}
+              ></div>
+              <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
+              <p className="text-gray-700">{post.content}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

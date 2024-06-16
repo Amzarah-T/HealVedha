@@ -9,8 +9,8 @@ export async function GET(request) {
     console.log('data seeding....')
 
     await model.User.create({ username: "Sample", email: "sample@gmail.com", firstName: "TNS", password: "123456" });
-    await model.Post.create({ title: "Welcome Post 1", UserId: 1});
-    await model.Post.create({ title: "Welcome Post 2", UserId: 1});
+    await model.Post.create({ title: "Welcome Post 1", image: 'https://c4.wallpaperflare.com/wallpaper/55/252/1002/kadali-nikon-d5100-sample-photo-wallpaper-preview.jpg', UserId: 1});
+    await model.Post.create({ title: "Welcome Post 2", image: 'https://c4.wallpaperflare.com/wallpaper/55/252/1002/kadali-nikon-d5100-sample-photo-wallpaper-preview.jpg', UserId: 1});
 
     result = "Success";
   } catch (error) {
