@@ -11,7 +11,7 @@ import revalidatePosts from "@/app/lib/actions";
 
 const getData = async () => {
     // const res = await processReq(GET, API_ROUTE + "/public/post");
-    const res = await fetch('http://localhost:3000/api/public/post', { next: { tags: ['adminPosts'] } })
+    const res = await fetch('http://localhost:3000/api/public/post', { cache: 'no-store', next: { tags: ['adminPosts'] } })
     const data = await res.json()
 
     return data.result;

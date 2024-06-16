@@ -1,10 +1,12 @@
 
-import { NewspaperIcon } from '@heroicons/react/20/solid';
+import { ArrowLeftCircleIcon, NewspaperIcon } from '@heroicons/react/20/solid';
 import {
     AtSymbolIcon,
     KeyIcon,
     ExclamationCircleIcon,
-  } from '@heroicons/react/24/outline';
+} from '@heroicons/react/24/outline';
+import { Button } from '@nextui-org/react';
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function SideBar() {
@@ -19,22 +21,22 @@ export default function SideBar() {
                         </Link>
                     </li>
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <SettingsIcon className="w-5 h-5 mr-3" />
-                        <span>Settings</span>
-                    </li>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <PowerIcon className="w-5 h-5 mr-3" />
-                        <span>Support</span>
-                    </li>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Link href={'/manage/posts'} className='flex'>
                             <NewspaperIcon className="w-5 h-5 mr-3" />
                             <span>Blog</span>
                         </Link>
                     </li>
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <UsersIcon className="w-5 h-5 mr-3" />
-                        <span>Profile</span>
+                        <Link href={'/manage/profile'} className='flex'>
+                            <UsersIcon className="w-5 h-5 mr-3" />
+                            <span>Profile</span>
+                        </Link>
+                    </li>
+                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                        <Button onClick={signOut} color="warning" className='flex'>
+                            <ArrowLeftCircleIcon className="w-5 h-5 mr-3" />
+                            <span>Logout</span>
+                        </Button>
                     </li>
                 </ul>
             </nav>
