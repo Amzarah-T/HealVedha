@@ -1,0 +1,24 @@
+import { Sequelize } from "sequelize";
+const sequelize = new Sequelize({
+    host: "localhost",
+    username: "root",
+    password: "root",
+    database: "heal-vedha",
+    dialect: "mysql",
+    port: 8889,
+    dialectModule: require("mysql2"),
+    benchmark: true
+});
+(async () => {
+    try {
+        await sequelize.authenticate();
+        console.log("Connection has been established successfully.");
+        // Sync defined models to the database
+        await sequelize.sync({ alter: true }); // This will create tables if they don't exist or update the existing on
+
+        // You can now start using your models to interact with the database
+    } catch (error) {
+        console.error("Unable to connect to the database:", error);
+    }
+})()
+export default sequelize;

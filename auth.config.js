@@ -16,6 +16,10 @@ export const authConfig = {
       }
 
       if (isLoggedIn) {
+        if (nextUrl.pathname.startsWith('/login')) {
+          return Response.redirect(new URL('/manage', nextUrl));
+        }
+        
         return true; // Allow authenticated users to access any route
       }
 
@@ -23,9 +27,11 @@ export const authConfig = {
         return false; // Redirect unauthenticated users to login page for dashboard routes
       }
 
-      if (!(nextUrl.pathname.startsWith('/api/protected') && isLoggedIn)) {
+      if (nextUrl.pathname.startsWith('/api/protected')) {
         return false;
       }
+      
+
 
       return true; // Allow unauthenticated users to access other public routes
     },

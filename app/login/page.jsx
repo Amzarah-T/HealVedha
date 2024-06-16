@@ -14,16 +14,24 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
  
 export default function LoginForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const processLogin = async (prevState, formData) => {
+    await authenticate(prevState, formData);
+  };
+
+  const [errorMessage, dispatch] = useFormState(processLogin, undefined);
   const session = useSession();
   const router = useRouter();
 
   useEffect(() => {
+    console.log('checking authentivationd', session.status)
     if (session.status === "authenticated") {
-      // alert(session.status)
       router.push('/manage');
-    }
+    }  
   }, [session])
+
+  if (session.status === "authenticated") {
+    router.push('/manage');
+  }
  
   return (
     <form action={dispatch} className="space-y-3">

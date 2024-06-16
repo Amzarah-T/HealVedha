@@ -1,5 +1,5 @@
 import { title } from "@/components/primitives";
-import { Card, CardBody, CardHeader, Input, Spinner } from "@nextui-org/react";
+import { Button, Card, CardBody, CardHeader, Input, Spinner } from "@nextui-org/react";
 import clsx from "clsx";
 import { link as linkStyles } from "@nextui-org/theme";
 import { Logo } from "@/components/icons";
@@ -10,13 +10,19 @@ import image from '@/public/images/common.jpeg';
 import axios from "axios";
 import { authConfig } from "@/auth.config";
 import { auth } from "@/auth";
+import { createPost } from "./lib/actions";
+import { model } from "@/models";
+
 
 async function getData() {
   try {
+    const result = await model.User.findAll({include: model.Post});
+    console.log(result)
     const res = await axios.get('http://localhost:3000/api/public/welcome');
  
     return res.data;
   } catch (error) {
+    console.log('errrrr',error)
     throw new Error('Failed to fetch data')
   }
 }
@@ -24,8 +30,6 @@ async function getData() {
 export default async function Home() {
   const data = await getData();
   const session = await auth();
-
-  console.log(session)
 
   return (
     <main className="">

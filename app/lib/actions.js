@@ -24,3 +24,7 @@ export async function authenticate(
     throw error;
   }
 }
+
+export async function createPost(data) {
+  return data;
+}
