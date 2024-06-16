@@ -6,13 +6,17 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { useEffect, useRef, useState } from "react";
 import Autoplay from 'embla-carousel-autoplay'
 import IsVisibleComponent from "./isVisibleComponent";
+import {useSession} from "next-auth/react";
 
 const image1 = "https://images.thequint.com/thequint-fit%2F2019-04%2F3e191d19-c232-4c96-af2c-48ed5d32699d%2FiStock_669861852.jpg?rect=0%2C405%2C3863%2C2173&auto=format%2Ccompress&fmt=webp&width=440&w=1200"
 const image2 = "https://www.ayurvedacollege.net/images/blogs/blog126.jpeg";
 const image3 = "https://ronfieldsnutrition.co.uk/wp-content/uploads/2020/02/Ayurvedic-herb.jpg"
 
 function CarrosalView() {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+    const session = useSession();
+
+    console.log('carrosal session', session);
 
     useEffect(() => {
         if (emblaApi) {

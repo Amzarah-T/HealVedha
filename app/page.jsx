@@ -8,23 +8,24 @@ import IsVisibleComponent from "@/components/isVisibleComponent";
 import Image from "next/image";
 import image from '@/public/images/common.jpeg';
 import axios from "axios";
+import { authConfig } from "@/auth.config";
+import { auth } from "@/auth";
 
 async function getData() {
-  const res = await axios.get('/api/welcome');
+  try {
+    const res = await axios.get('http://localhost:3000/api/public/welcome');
  
-  console.log('....response', res)
- 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
+    return res.data;
+  } catch (error) {
     throw new Error('Failed to fetch data')
   }
- 
-  return res.json()
 }
 
 export default async function Home() {
-  const data = await getData()
-  console.log('printin data', data);
+  const data = await getData();
+  const session = await auth();
+
+  console.log(session)
 
   return (
     <main className="">
