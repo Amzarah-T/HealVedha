@@ -9,9 +9,17 @@ const User = sequelize.define("User", {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    // unique: true,
-    indexes:[{unique:true, fields: ['email']}]
+    unique: {
+      name: 'unique_email',
+      msg: 'Email address must be unique.',
+    },
+    validate: {
+      isEmail: {
+        msg: 'Invalid email format.',
+      },
+    },
   },
+  
   // Additional fields:
   firstName: {
     type: DataTypes.STRING,
