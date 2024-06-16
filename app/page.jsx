@@ -16,13 +16,13 @@ import { model } from "@/models";
 
 async function getData() {
   try {
-    const result = await model.User.findAll({include: model.Post});
+    const result = await model.User.findAll({ include: model.Post });
     console.log(result)
     const res = await axios.get('http://localhost:3000/api/public/welcome');
- 
+
     return res.data;
   } catch (error) {
-    console.log('errrrr',error)
+    console.log('errrrr', error)
     throw new Error('Failed to fetch data')
   }
 }

@@ -12,8 +12,8 @@ const Post = sequelize.define("Post", {
   }
 });
 
-Post.associations = (models) => {
-    Post.belongsTo(models.User)
-}
+// Post.associate = (models) => {
+//     Post.belongsTo(models.User)
+// }
 
 export default Post;

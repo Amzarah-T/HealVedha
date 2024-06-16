@@ -4,7 +4,8 @@ import Image from "next/image";
 
 async function getData() {
   try {
-    const result = await model.Post.findAll({ incude: model.User });
+    const result = await model.Post.findAll({ include: model.User });
+    const r = await model.User.findAll({ include: model.Post });
 
     return result;
   } catch (error) {
@@ -17,11 +18,11 @@ export default async function BlogPage() {
 
   return (
     <div>
-      <div className="max-w-4xl mx-auto p-6">
+      <div className="mx-auto p-6">
         <h1 className="text-4xl font-bold mb-6 text-center">Blog Posts</h1>
-        <ul className="space-y-6 flex gap-10">
+        <ul className="space-y-6 flex flex-col md:flex-row gap-10 grid-cols-2 flex-wrap">
           {posts.map((post) => (
-            <li key={post.id} className="p-6 bg-white rounded-lg shadow-md w-full">
+            <li key={post.id} className="p-6 bg-white rounded-lg shadow-md min-w-64 flex-1">
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ backgroundImage: `url(${post.image})` }}

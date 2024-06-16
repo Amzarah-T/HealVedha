@@ -1,35 +1,26 @@
-"use client"
-import PostsTable from "@/components/postView";
+// "use client"
+// import PostsTable from "@/components/postsTable";
+import { model } from "@/models";
 import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
 
-export default function ManagePage() {
+async function getData() {
+  try {
+      const result = await model.Post.findAll({ incude: model.User });
+
+      return result;
+  } catch (error) {
+      throw new Error('Failed to fetch data')
+  }
+}
+
+
+export default async function ManagePage() {
+  const posts = await getData();
+
   return (
     <div className="flex flex-col px-4 min-h-screen ">
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" isVertical={false}>
-          <Tab key="posts" title="Manage Posts">
-            {/* <Card>
-              <CardBody>  
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </CardBody>
-            </Card> */}
-            <PostsTable />
-          </Tab>
-          <Tab key="music" title="Music">
-            <Card>
-              <CardBody>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              </CardBody>
-            </Card>
-          </Tab>
-          <Tab key="videos" title="Videos">
-            <Card>
-              <CardBody>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </CardBody>
-            </Card>
-          </Tab>
-        </Tabs>
+            Dashboard
       </div>
     </div>
   );

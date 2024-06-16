@@ -1,4 +1,6 @@
 import { Sequelize } from "sequelize";
+import mysql from 'mysql2';
+
 const sequelize = new Sequelize({
     host: "localhost",
     username: "root",
@@ -6,7 +8,7 @@ const sequelize = new Sequelize({
     database: "heal-vedha",
     dialect: "mysql",
     port: 8889,
-    dialectModule: require("mysql2"),
+    dialectModule: mysql,
     benchmark: true
 });
 (async () => {
