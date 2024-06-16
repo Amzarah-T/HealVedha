@@ -1,5 +1,5 @@
 import { title } from "@/components/primitives";
-import { Card, CardBody, CardHeader, Input, Spinner } from "@nextui-org/react";
+import { Button, Card, CardBody, CardHeader, Input, Spinner } from "@nextui-org/react";
 import clsx from "clsx";
 import { link as linkStyles } from "@nextui-org/theme";
 import { Logo } from "@/components/icons";
@@ -7,8 +7,30 @@ import CarrosalView from "@/components/carrosal";
 import IsVisibleComponent from "@/components/isVisibleComponent";
 import Image from "next/image";
 import image from '@/public/images/common.jpeg';
+import axios from "axios";
+import { authConfig } from "@/auth.config";
+import { auth } from "@/auth";
+import { createPost } from "./lib/actions";
+import { model } from "@/models";
 
-export default function Home() {
+
+async function getData() {
+  try {
+    const result = await model.User.findAll({ include: model.Post });
+    console.log(result)
+    const res = await axios.get('http://localhost:3000/api/public/welcome');
+
+    return res.data;
+  } catch (error) {
+    console.log('errrrr', error)
+    throw new Error('Failed to fetch data')
+  }
+}
+
+export default async function Home() {
+  const data = await getData();
+  const session = await auth();
+
   return (
     <main className="">
       <div className="text-foreground pop-up">

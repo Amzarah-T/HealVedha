@@ -4,25 +4,38 @@ export const authConfig = {
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
-      // Check if the user is authenticated
       const isLoggedIn = !!auth?.user;
-      // Initialize protected routes
-      // Here, all routes except the login page is protected
-      const publicPaths = ['/login', '/about', '/blog', '/services', '/explore']; // Add all public paths here
+      const publicPaths = ['/home']; // Define public paths here
+      const isOnPublicPath = publicPaths.some(path => nextUrl.pathname.startsWith(path));
+      const isOnDashboard = nextUrl.pathname.startsWith('/manage');
 
-        // Initialize protected routes
-        // Check if the current path is in the list of public paths
-        const isOnProtected = !publicPaths.some(path => nextUrl.pathname.startsWith(path)) && nextUrl.pathname !== '/';
-      
-      if (isOnProtected) {
-        if (isLoggedIn) return true;
-        return false; // redirect to /login
-      } else if (isLoggedIn) { 
-        // redirected to homepage
-        return Response.redirect(new URL('/manage', nextUrl));
+      console.log('Printing the path name:', nextUrl.pathname);
+
+      if (isOnPublicPath) {
+        return true; // Allow access to public paths without authentication
       }
-      return true;
+
+      if (isLoggedIn) {
+        if (nextUrl.pathname.startsWith('/login')) {
+          return Response.redirect(new URL('/manage', nextUrl));
+        }
+        
+        return true; // Allow authenticated users to access any route
+      }
+
+      if (isOnDashboard) {
+        return false; // Redirect unauthenticated users to login page for dashboard routes
+      }
+
+      if (nextUrl.pathname.startsWith('/api/protected')) {
+        return false;
+      }
+      
+
+
+      return true; // Allow unauthenticated users to access other public routes
     },
   },
   providers: [], // Add providers with an empty array for now
+  trustHost: true
 };

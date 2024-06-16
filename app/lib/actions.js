@@ -2,6 +2,7 @@
 
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import { revalidateTag } from 'next/cache'
  
 // ...
  
@@ -23,4 +24,12 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function createPost(data) {
+  return data;
+}
+
+export default async function revalidatePosts() {
+  revalidateTag('adminPosts')
 }

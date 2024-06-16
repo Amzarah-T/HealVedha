@@ -22,6 +22,11 @@ function Footer() {
                                     <GithubIcon />
                                 </button>
                             </div>
+                            <h4 className='text-2xl py-5'>Disclaimer!</h4>
+                            <div>
+                                The Information on this website is presented for educational purposes only. It is not intended as a substitute for the diagnosis, treatment, or advise of a qualified, licensed medical practitioner. The facts presented are offered as information only, not medical advice, and in no way should anyone infer that we are practicing medicine.
+                            </div>
+
                         </div>
                         <div className="w-full lg:w-6/12 px-4">
                             <div className="flex flex-wrap items-top mb-6">

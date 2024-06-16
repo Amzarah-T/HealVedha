@@ -3,6 +3,8 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +14,17 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const session = auth();
+
   return (
     <html lang="en">
       <body className={inter.className}>
       <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-        <Navbar />
-        {children}
-        <Footer />
+        <SessionProvider session={session}>
+          <Navbar />
+          {children}
+          <Footer />
+        </SessionProvider>
       </Providers>
       </body>
     </html>

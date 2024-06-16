@@ -9,9 +9,29 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import { Button } from '@nextui-org/react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
  
 export default function LoginForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const processLogin = async (prevState, formData) => {
+    await authenticate(prevState, formData);
+  };
+
+  const [errorMessage, dispatch] = useFormState(processLogin, undefined);
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log('checking authentivationd', session.status)
+    if (session.status === "authenticated") {
+      router.push('/manage');
+    }  
+  }, [session])
+
+  if (session.status === "authenticated") {
+    router.push('/manage');
+  }
  
   return (
     <form action={dispatch} className="space-y-3">
