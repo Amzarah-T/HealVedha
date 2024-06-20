@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div>
           <p className="py-4">
             Drop us a note in the form below, and we will get back to you within 24 business hours.
-            You can also directly email info@thehealingardens.com or call the number below.
+            You can also directly email or call the number below.
           </p>
           <p>
             📞 714-730-7919
