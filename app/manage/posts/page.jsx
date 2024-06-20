@@ -76,10 +76,10 @@ async function PostsPage() {
                 <table class="min-w-full bg-white border-collapse border border-gray-200 shadow-md">
                     <thead>
                         <tr class="bg-gray-100">
-                            <th class="border border-gray-300 px-4 py-2">Id</th>
-                            <th class="border border-gray-300 px-4 py-2">Title</th>
-                            <th class="border border-gray-300 px-4 py-2">Posted By</th>
-                            <th class="border border-gray-300 px-4 py-2">Actions</th>
+                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Id</th>
+                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Title</th>
+                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Posted By</th>
+                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,10 +90,10 @@ async function PostsPage() {
                         ) : (
                             result.data.result.map((post, index) => (
                                 <tr key={index} class="bg-white hover:bg-gray-100">
-                                    <td class="border border-gray-300 px-4 py-2">{post.id}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{post.title}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{post.User.username}</td>
-                                    <td class="border border-gray-300 px-4 py-2 gap-5 flex justify-center">
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.id}</td>
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.title}</td>
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.User.username}</td>
+                                    <td class="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
                                         <PostCreate editPost={editPost} editMode={true} post={post} />
                                         <PostCreate deletePost={deletePost} deleteMode={true} post={post} />
                                     </td>
