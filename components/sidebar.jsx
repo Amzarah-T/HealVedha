@@ -27,6 +27,12 @@ export default function SideBar() {
                         </Link>
                     </li>
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                        <Link href={'/manage/services'} className='flex'>
+                            <NewspaperIcon className="w-5 h-5 mr-3" />
+                            <span>Services</span>
+                        </Link>
+                    </li>
+                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Link href={'/manage/profile'} className='flex'>
                             <UsersIcon className="w-5 h-5 mr-3" />
                             <span>Profile</span>
