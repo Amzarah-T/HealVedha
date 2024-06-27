@@ -27,7 +27,7 @@ export default async function BlogPage() {
                 className="h-64 bg-cover bg-center"
                 style={{ backgroundImage: `url(${post.image})` }}
               ></div>
-              <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
+              <h2 className="text-2xl font-semibold my-2">{post.title}</h2>
               <p className="text-gray-700">{post.content}</p>
             </li>
           ))}

@@ -90,7 +90,7 @@ export const Navbar = () => {
           <Link aria-label="Github" href={siteConfig.links.login}>
             <User className="text-default-500" />
           </Link> 
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
       </NavbarContent>
@@ -99,7 +99,7 @@ export const Navbar = () => {
         {/* <Link isExternal aria-label="Github" href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link> */}
-        <ThemeSwitch />
+        {/* <ThemeSwitch /> */}
         <NavbarMenuToggle />
       </NavbarContent>
 

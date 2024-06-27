@@ -19,7 +19,7 @@ export default async function ManagePage() {
 
   return (
     <div className="flex flex-col px-4 min-h-screen ">
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col p-24">
             Dashboard
       </div>
     </div>

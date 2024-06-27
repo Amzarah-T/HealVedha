@@ -30,6 +30,10 @@ export async function createPost(data) {
   return data;
 }
 
-export default async function revalidatePosts() {
+export async function revalidatePosts() {
   revalidateTag('adminPosts')
+}
+
+export async function revalidateServices() {
+  revalidateTag('adminServices')
 }
