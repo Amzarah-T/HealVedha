@@ -92,7 +92,7 @@ async function PostsPage() {
                                 <tr key={index} class="bg-white hover:bg-gray-100">
                                     <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.id}</td>
                                     <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.title}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.User.username}</td>
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{post.User?.username}</td>
                                     <td class="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
                                         <PostCreate editPost={editPost} editMode={true} post={post} />
                                         <PostCreate deletePost={deletePost} deleteMode={true} post={post} />
