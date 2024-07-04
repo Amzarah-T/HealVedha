@@ -1,5 +1,6 @@
 import { title } from "@/components/primitives";
 import { model } from "@/models";
+import { getImage } from "@/utils/validations";
 import Image from "next/image";
 
 async function getData() {
@@ -25,7 +26,7 @@ export default async function BlogPage() {
             <li key={post.id} className="p-6 bg-white rounded-lg shadow-md min-w-64 flex-1">
               <div
                 className="h-64 bg-cover bg-center"
-                style={{ backgroundImage: `url(${post.image})` }}
+                style={{ backgroundImage: `url(${getImage(post.image)})` }}
               ></div>
               <h2 className="text-2xl font-semibold my-2">{post.title}</h2>
               <p className="text-gray-700">{post.content}</p>
