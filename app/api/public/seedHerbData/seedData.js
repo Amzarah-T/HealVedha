@@ -1,18 +1,18 @@
 export const diseases = [
     {
-        titleEn: "",
-        titleSn: "",
-        titleTm: "",
+        titleEn: "t1",
+        titleSn: "t2",
+        titleTm: "t3",
         diseaseTreatments: [
             {
-                descEn: "",
-                descSn: "",
-                descTm: ""
+                descEn: "t4",
+                descSn: "t4",
+                descTm: "4t"
             },
             {
-                descEn: "",
-                descSn: "",
-                descTm: ""
+                descEn: "4t",
+                descSn: "t4",
+                descTm: "4t"
             }
         ]
     }

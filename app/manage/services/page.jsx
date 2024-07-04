@@ -11,7 +11,7 @@ import {revalidateServices} from "@/app/lib/actions";
 import ServiceCreate from "@/components/service/create";
 
 const getData = async () => {
-    const res = await fetch('http://localhost:3000/api/public/services', { cache: 'no-store', next: { tags: ['adminServices'] } })
+    const res = await fetch('http://localhost:3000/api/public/diseases', { cache: 'no-store', next: { tags: ['adminServices'] } })
     const data = await res.json()
 
     return data.result;
@@ -77,7 +77,7 @@ async function Page() {
         <div>
             <div class="overflow-x-auto">
                 <div className="flex justify-between items-center px-10 py-10 ">
-                    <div className="text-3xl text-left">Services and Symptoms</div>
+                    <div className="text-3xl text-left">Diseases and Symptoms</div>
                     <ServiceCreate saveData={save} />
                 </div>
                 <table class="min-w-full bg-white border-collapse border border-gray-200 shadow-md">

@@ -17,7 +17,7 @@ export default function Page() {
   }, []);
 
   async function getData() {
-    const res = await fetch('http://localhost:3000/api/public/services', { cache: 'no-store' })
+    const res = await fetch('http://localhost:3000/api/public/diseases', { cache: 'no-store' })
     const data = await res.json();
 
     setResults(data.result);

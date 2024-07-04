@@ -17,7 +17,7 @@ export default function ServicesPage({ params }) {
     }, []);
 
     async function getData() {
-        const res = await fetch('http://localhost:3000/api/public/services/treatment?dist=' + params.id, { cache: 'no-store' })
+        const res = await fetch('http://localhost:3000/api/public/diseases/treatment?dist=' + params.id, { cache: 'no-store' })
         const data = await res.json();
 
         setResult(data.result);
@@ -45,7 +45,7 @@ export default function ServicesPage({ params }) {
                 <div className="pt-10 container m-auto">
                     <div className="text-left text-3xl pb-4">Treatments</div>
                     <ul className="space-y-4 flex flex-col">
-                        {result.ServiceTreatments?.map((dataObject) => (
+                        {result.DiseaseTreatments?.map((dataObject) => (
                             <li key={dataObject.id} className="p-6 bg-green-50 shadow-md min-w-64 flex-1">
 
                                 <h2 className="text-2xl font-semibold my-2">{dataObject.descEn}</h2>

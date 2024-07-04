@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize";
 
-const ServiceTreatment = sequelize.define("ServiceTreatment", {
+const DiseaseTreatment = sequelize.define("DiseaseTreatment", {
   descTm: {
     type: DataTypes.TEXT,
     allowNull: false
@@ -20,4 +20,4 @@ const ServiceTreatment = sequelize.define("ServiceTreatment", {
 //     Post.belongsTo(models.User)
 // }
 
-export default ServiceTreatment;
+export default DiseaseTreatment;

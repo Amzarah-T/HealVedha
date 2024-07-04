@@ -1,5 +1,5 @@
 import { initSequelize, model } from "@/models";
-import { herbs } from "./seedData";
+import { diseases, herbs } from "./seedData";
 
 export async function GET(request) {
   let result = "Failed";
@@ -13,13 +13,13 @@ export async function GET(request) {
         await model.Herb.create(herb);
     })
     
-  //   herbs.forEach(async (herb) => {
-  //     let created = await model.Herb.create(herb);
+    diseases.forEach(async (disease) => {
+      let created = await model.Disease.create(disease);
 
-  //     herb.serviceTreatments.forEach(async (treatement) => {
-  //         await model.ServiceTreatment.create({...treatement, ServiceId: created.id});
-  //     })
-  // })
+      disease.diseaseTreatments.forEach(async (treatement) => {
+          await model.DiseaseTreatment.create({...treatement, DiseaseId: created.id});
+      })
+  })
 
     result = "Success";
   } catch (error) {

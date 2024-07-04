@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize";
 
-const Service = sequelize.define("Service", {
+const Disease = sequelize.define("Disease", {
   titleTm: {
     type: DataTypes.STRING,
     allowNull: false
@@ -13,10 +13,6 @@ const Service = sequelize.define("Service", {
   titleSn: {
     type: DataTypes.STRING,
     allowNull: false
-  },
-  image: {
-    type: DataTypes.STRING,
-    allowNull: false
   }
 });
 
@@ -24,4 +20,4 @@ const Service = sequelize.define("Service", {
 //     Post.belongsTo(models.User)
 // }
 
-export default Service;
+export default Disease;
