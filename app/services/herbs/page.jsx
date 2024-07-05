@@ -44,7 +44,7 @@ export default function Page() {
       <div className="text-left">
         <Link href={'/services/'}><Button variant='ghost' color="primary" radius='sm'>{'< Back'}</Button></Link>
       </div>
-      <h1 className="text-foreground text-3xl">Remedies and Treatments</h1>
+      <h1 className="text-foreground text-3xl">Ayurwedic & Medical Plants</h1>
       <div className="flex min-h-screen flex-col items-center pt-10">
         <form onSubmit={filter} className="flex gap-5 container items-center pb-5 md:w-96 w-full">
           <SearchIcon className='text-2xl' />
