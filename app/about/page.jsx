@@ -1,45 +1,39 @@
 "use client"
 
 import { title } from "@/components/primitives";
-import { Button, Input, Textarea } from "@nextui-org/react";
+import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Popover, PopoverContent, PopoverTrigger, Textarea, useDisclosure } from "@nextui-org/react";
+import axios from "axios";
 import { useRef, useState } from "react";
 
 
 export default function AboutPage() {
   const form = useRef(null);
   const [loading, setLoading] = useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const sendEmail = () => {
+  const sendEmail = async (data) => {
     setLoading(true);
 
-    var transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'citytaxi672@gmail.com',
-        pass: 'ewtq mtia altg trbm'
-      }
-    });
-  
-    var mailOptions = {
-      from: 'citytaxi672@gmail.com',
-      to: emailTo,
-      subject: subject,
-      text: message,
-      html: html
-    };
-  
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-        form.current.reset();
-      }
+    try {
+      const response = await axios.post('http://localhost:3000/api/public/mail/send', {
+        emailTo: data.yourEmail,
+        subject: 'Customer Support',
+        message: `
+Name: ${data.yourName}
+Telephone: ${data.phoneNumber}
+Message: ${data.message}
+Email: ${data.yourEmail}
+`,
+        html: undefined
+      })
 
+      onOpen();
+      form.current.reset();
+    } catch (err) {
+
+    } finally {
       setLoading(false);
-    });
-  
-    return "Mail Sent"
+    }
   }
 
   return (
@@ -66,11 +60,33 @@ export default function AboutPage() {
           <form ref={form} action={async (data) => {
             sendEmail(Object.fromEntries(data));
           }}>
-            <Input type="text" label="Your Name" className="pb-4" name="yourName"/>
-            <Input type="email" label="Your Email" className="pb-4" name="yourEmail"/>
-            <Input type="tel" label="Phone Number" className="pb-4" name="phoneNumber" />
-            <Textarea label="Enter your message" className="pb-4" name="message" />
-            <Button type="submit" color="success" isLoading={loading}>Submit</Button>
+            <Input type="text" label="Your Name" className="pb-4" name="yourName" required/>
+            <Input type="email" label="Your Email" className="pb-4" name="yourEmail" required/>
+            <Input type="tel" label="Phone Number" className="pb-4" name="phoneNumber" required/>
+            <Textarea label="Enter your message" className="pb-4" name="message" required/>
+            <div className="flex">
+              <Button type="submit" color="success" isLoading={loading}>Submit</Button>
+              <div>
+
+                <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                  <ModalContent>
+                    {(onClose) => (
+                      <>
+                        <ModalHeader className="flex flex-col gap-1">Alert!</ModalHeader>
+                        <ModalBody>
+                          Your submission processed
+                        </ModalBody>
+                        <ModalFooter>
+                          <Button color="danger" variant="light" onPress={onClose}>
+                            Ok
+                          </Button>
+                        </ModalFooter>
+                      </>
+                    )}
+                  </ModalContent>
+                </Modal>
+              </div>
+            </div>
           </form>
         </div>
       </div>

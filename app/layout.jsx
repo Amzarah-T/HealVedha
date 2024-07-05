@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto_Condensed({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Heal Vedha",
@@ -18,14 +18,14 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
-      <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-        <SessionProvider session={session}>
-          <Navbar />
-          {children}
-          <Footer />
-        </SessionProvider>
-      </Providers>
+      <body className={roboto.className}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <SessionProvider session={session}>
+            <Navbar />
+            {children}
+            <Footer />
+          </SessionProvider>
+        </Providers>
       </body>
     </html>
   );
