@@ -11,5 +11,14 @@ export async function GET(request) {
     });
 }
 
+export async function POST(request) {
+    const reqObj = await request.json();
+    const result = await model.DiseaseTreatment.findAll({ where: { DiseaseId: reqObj.diseaseId }, include: model.Disease });
+
+    return new Response(JSON.stringify({ result: result }), {
+        headers: { 'Content-Type': 'application/json' },
+    });
+}
+
 
 export const dynamic = 'force-dynamic'

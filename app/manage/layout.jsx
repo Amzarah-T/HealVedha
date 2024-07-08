@@ -7,7 +7,7 @@ export default function AboutLayout({
     <section className="flex flex-col items-center justify-center gap-4">
       <div className="flex w-screen bg-slate-100 text-center justify-between">
         <div className="w-64 bg-slate-200"><SideBar /></div>
-        <div className="grow h-screen">{children}</div>
+        <div className="grow max-h-screen overflow-scroll">{children}</div>
       </div>
     </section>
   );

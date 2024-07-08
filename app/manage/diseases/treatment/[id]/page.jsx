@@ -1,19 +1,35 @@
 
 import { model } from "@/models";
-import {revalidateDiseases as revalidate} from "@/app/lib/actions";
-import DiseasesCreate from "@/components/diseases/create";
+import { revalidateDiseasesTreatment as revalidate } from "@/app/lib/actions";
+import DiseaseTreatmentCreate from "@/components/diseaseTreatment/create";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 
-const getData = async () => {
-    const res = await fetch('http://localhost:3000/api/public/diseases', { cache: 'no-store', next: { tags: ['adminDiseases'] } })
-    const data = await res.json()
+// const getData = async (id) => {
+//     console.log('sending data......... ', id);
+//     const res = await fetch('http://localhost:3000/api/public/diseases/treatment', {
+//         method: 'POST',
+//         cache: 'no-store',
+//         next: { tags: ['adminDiseasesTreatment'] },
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({ diseaseId: id })
+//     })
+//     const data = await res.json()
 
-    return data.result;
+//     return data.result;
+// }
+
+async function getData(id) {
+    const res = await fetch('http://localhost:3000/api/public/diseases/treatment?dist=' + id, { cache: 'no-store' })
+    const data = await res.json();
+
+    return data.result.DiseaseTreatments;
 }
 
-async function Page() {
-    let result = { data: { result: await getData() } };
+async function Page({ params }) {
+    let result = { data: { result: await getData(params.id) } };
 
     const save = async (formData) => {
         "use server"
@@ -22,14 +38,15 @@ async function Page() {
         ) {
             data[key] = value;
             console.log(`${key}: ${value}\n`);
-          }
-        
-        await model.Disease.create({
-            titleEn: formData.get('titleEn'), 
-            titleTm: formData.get('titleTm'), 
-            titleSn: formData.get('titleSn'), 
+        }
+
+        await model.DiseaseTreatment.create({
+            descEn: formData.get('descEn'),
+            descTm: formData.get('descTm'),
+            descSn: formData.get('descSn'),
+            DiseaseId: params.id
         });
-        
+
         revalidate();
     }
 
@@ -40,14 +57,14 @@ async function Page() {
         ) {
             data[key] = value;
             console.log(`${key}: ${value}\n`);
-          }
-        
-        await model.Disease.update({
-            titleEn: formData.get('titleEn'), 
-            titleTm: formData.get('titleTm'), 
-            titleSn: formData.get('titleSn'), 
-        }, {where: {id: dataObject.id}});
-        
+        }
+
+        await model.DiseaseTreatment.update({
+            descEn: formData.get('descEn'),
+            descTm: formData.get('descTm'),
+            descSn: formData.get('descSn'),
+        }, { where: { id: dataObject.id } });
+
         revalidate();
     }
 
@@ -58,10 +75,10 @@ async function Page() {
         ) {
             data[key] = value;
             console.log(`${key}: ${value}\n`);
-          }
-        
-        await model.Disease.destroy({where: {id: dataObject.id}});
-        
+        }
+
+        await model.DiseaseTreatment.destroy({ where: { id: dataObject.id } });
+
         revalidate();
     }
 
@@ -69,8 +86,11 @@ async function Page() {
         <div>
             <div class="overflow-x-auto">
                 <div className="flex justify-between items-center px-10 py-10 ">
+                    <div className="text-left">
+                        <Link href={'/manage/diseases/'}><Button variant='ghost' color="primary" radius='sm'>{'< Back'}</Button></Link>
+                    </div>
                     <div className="text-3xl text-left">Diseases and Treatments</div>
-                    <DiseasesCreate saveData={save} />
+                    <DiseaseTreatmentCreate saveData={save} />
                 </div>
                 <table class="min-w-full bg-white border-collapse border border-gray-200 shadow-md">
                     <thead>
@@ -91,15 +111,12 @@ async function Page() {
                             result.data.result.map((dataObject, index) => (
                                 <tr key={index} class="bg-white hover:bg-gray-100">
                                     <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.id}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.titleEn}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.titleSn}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.titleTm}</td>
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descEn}</td>
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descSn}</td>
+                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descTm}</td>
                                     <td class="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
-                                        <DiseasesCreate editData={editData} editMode={true} dataObject={dataObject} />
-                                        <DiseasesCreate deleteData={deleteData} deleteMode={true} dataObject={dataObject} />
-                                        <Link href={'/manage/diseases/treatment/' + dataObject.id}>
-                                            <Button color="secondary" className="max-w-fit">Treatements</Button>
-                                        </Link>
+                                        <DiseaseTreatmentCreate editData={editData} editMode={true} dataObject={dataObject} />
+                                        <DiseaseTreatmentCreate deleteData={deleteData} deleteMode={true} dataObject={dataObject} />
                                     </td>
                                 </tr>
                             ))

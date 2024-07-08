@@ -45,3 +45,7 @@ export async function revalidateHerbs() {
 export async function revalidateDiseases() {
   revalidateTag('adminDiseases')
 }
+
+export async function revalidateDiseasesTreatment() {
+  revalidateTag('adminDiseasesTreatment')
+}
