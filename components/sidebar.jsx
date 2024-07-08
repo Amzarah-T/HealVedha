@@ -4,6 +4,7 @@ import {
     AtSymbolIcon,
     KeyIcon,
     ExclamationCircleIcon,
+    BeakerIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@nextui-org/react';
 import { signOut } from 'next-auth/react';
@@ -36,6 +37,12 @@ export default function SideBar() {
                         <Link href={'/manage/profile'} className='flex'>
                             <UsersIcon className="w-5 h-5 mr-3" />
                             <span>Profile</span>
+                        </Link>
+                    </li>
+                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                        <Link href={'/manage/herbs'} className='flex'>
+                            <BeakerIcon className="w-5 h-5 mr-3" />
+                            <span>Herbs</span>
                         </Link>
                     </li>
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
