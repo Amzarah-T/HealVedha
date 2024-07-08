@@ -37,3 +37,15 @@ export async function revalidatePosts() {
 export async function revalidateServices() {
   revalidateTag('adminServices')
 }
+
+export async function revalidateHerbs() {
+  revalidateTag('adminHerbs')
+}
+
+export async function revalidateDiseases() {
+  revalidateTag('adminDiseases')
+}
+
+export async function revalidateDiseasesTreatment() {
+  revalidateTag('adminDiseasesTreatment')
+}
