@@ -49,3 +49,7 @@ export async function revalidateDiseases() {
 export async function revalidateDiseasesTreatment() {
   revalidateTag('adminDiseasesTreatment')
 }
+
+export async function revalidateDiseasesSymptom() {
+  revalidateTag('adminDiseasesSymptom')
+}

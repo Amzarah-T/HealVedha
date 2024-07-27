@@ -1,21 +1,33 @@
 export const diseases = [
-    // {
-    //     titleEn: "t1",
-    //     titleSn: "t2",
-    //     titleTm: "t3",
-    //     diseaseTreatments: [
-    //         {
-    //             descEn: "t4",
-    //             descSn: "t4",
-    //             descTm: "4t"
-    //         },
-    //         {
-    //             descEn: "4t",
-    //             descSn: "t4",
-    //             descTm: "4t"
-    //         }
-    //     ]
-    // }
+    {
+        titleEn: "sd",
+        titleSn: "sd",
+        titleTm: "a",
+        diseaseTreatments: [
+            {
+                descEn: "a",
+                descSn: "s",
+                descTm: "c"
+            },
+            {
+                descEn: "a",
+                descSn: "c",
+                descTm: "c"
+            }
+        ],
+        diseaseSymptoms: [
+            {
+                descEn: "a",
+                descSn: "c",
+                descTm: "c"
+            },
+            {
+                descEn: "a",
+                descSn: "c",
+                descTm: "c"
+            }
+        ]
+    }
 ]
 
 // export const herbs = [
