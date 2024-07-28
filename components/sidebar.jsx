@@ -9,6 +9,7 @@ import {
 import { Button } from '@nextui-org/react';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import AdminOnlyWrapper from './AdminOnlyWrapper';
 
 export default function SideBar() {
 
@@ -16,42 +17,45 @@ export default function SideBar() {
         <section className="h-screen w-64 fixed left-0 top-0 bg-gray-800 overflow-y-auto mt-16">
             <nav className="mt-6">
                 <ul>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <Link href={'/manage'} className='flex'>
-                            <HomeIcon className="w-5 h-5 mr-3" />
-                            <span>Dashboard</span>
-                        </Link>
-                    </li>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <Link href={'/manage/posts'} className='flex'>
-                            <NewspaperIcon className="w-5 h-5 mr-3" />
-                            <span>Blog</span>
-                        </Link>
-                    </li>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <Link href={'/manage/diseases'} className='flex'>
-                            <NewspaperIcon className="w-5 h-5 mr-3" />
-                            <span>Diseases</span>
-                        </Link>
-                    </li>
-                    {/* <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <Link href={'/manage/profile'} className='flex'>
-                            <UsersIcon className="w-5 h-5 mr-3" />
-                            <span>Profile</span>
-                        </Link>
-                    </li> */}
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <Link href={'/manage/herbs'} className='flex'>
-                            <BeakerIcon className="w-5 h-5 mr-3" />
-                            <span>Herbs</span>
-                        </Link>
-                    </li>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                        <Link href={'/manage/users'} className='flex'>
-                            <UsersIcon className="w-5 h-5 mr-3" />
-                            <span>Users</span>
-                        </Link>
-                    </li>
+                    <AdminOnlyWrapper>
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage'} className='flex'>
+                                <HomeIcon className="w-5 h-5 mr-3" />
+                                <span>Dashboard</span>
+                            </Link>
+                        </li>
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/posts'} className='flex'>
+                                <NewspaperIcon className="w-5 h-5 mr-3" />
+                                <span>Blog</span>
+                            </Link>
+                        </li>
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/diseases'} className='flex'>
+                                <NewspaperIcon className="w-5 h-5 mr-3" />
+                                <span>Diseases</span>
+                            </Link>
+                        </li>
+                        {/* <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/profile'} className='flex'>
+                                <UsersIcon className="w-5 h-5 mr-3" />
+                                <span>Profile</span>
+                            </Link>
+                        </li> */}
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/herbs'} className='flex'>
+                                <BeakerIcon className="w-5 h-5 mr-3" />
+                                <span>Herbs</span>
+                            </Link>
+                        </li>
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/users'} className='flex'>
+                                <UsersIcon className="w-5 h-5 mr-3" />
+                                <span>Users</span>
+                            </Link>
+                        </li>
+                    </AdminOnlyWrapper>
+                    
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Button onClick={signOut} color="warning" className='flex'>
                             <ArrowLeftCircleIcon className="h-5 mr-3" />
