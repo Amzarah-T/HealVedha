@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import { authConfig } from '@/auth.config';
 import Credentials from 'next-auth/providers/credentials';
+import { model } from "@/models";
 
 export const { signIn, signOut, auth, handlers } = NextAuth({
   
@@ -10,14 +11,15 @@ export const { signIn, signOut, auth, handlers } = NextAuth({
       async authorize(credentials) {
         if (credentials.email && credentials.password) {
           // Add you backend code here
-          // let loginRes = await backendLogin(credentials.id, credentials.password)
+          let response = await model.User.findOne({where: {email: credentials.email, password: credentials.password}});
           let loginRes = {
-            success : true,
+            success : response.id ? true: false,
             data : {
               user: {
-                ID: "john_doe",
-                NAME: "John Doe",
-                EMAIL: "muktharthanish@gmail.com",
+                ID: response.id,
+                NAME: response.username,
+                EMAIL: response.email,
+                USERROLE: response.userrole
               },
             }
           }
@@ -28,6 +30,7 @@ export const { signIn, signOut, auth, handlers } = NextAuth({
             id: loginRes.data.user.ID ?? '',
             name: loginRes.data.user.NAME ?? '',
             email: loginRes.data.user.EMAIL ?? '',
+            userRole: loginRes.data.user.USERROLE ?? ''
           };
           return user;
         }
