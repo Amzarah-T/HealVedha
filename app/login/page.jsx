@@ -12,6 +12,8 @@ import { Button } from '@nextui-org/react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import UsersCreate from '@/components/users/create';
+import axios from 'axios';
  
 export default function LoginForm() {
   const processLogin = async (prevState, formData) => {
@@ -39,6 +41,23 @@ export default function LoginForm() {
 
   if (session.status === "authenticated") {
     router.push('/manage');
+  }
+
+  const save = async (formData) => {
+      let data = {};
+      for (const [key, value] of formData
+      ) {
+          data[key] = value;
+          console.log(`${key}: ${value}\n`);
+        }
+      
+        const res = await axios.post('http://localhost:3000/api/public/users', {
+          username: formData.get('email'), 
+          email: formData.get('email'), 
+          firstName: formData.get('firstName'), 
+          userrole: formData.get('userrole'),
+          password: formData.get('password')
+      })
   }
  
   return (
@@ -82,13 +101,16 @@ export default function LoginForm() {
                 name="password"
                 placeholder="Enter password"
                 required
-                minLength={6}
+                // minLength={6}
               />
               <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
         </div>
-        <div className='w-40'><LoginButton isInvalid={isInvalid}/></div>
+        <div className='mt-4 flex gap-5 items-center justify-between'>
+          <LoginButton isInvalid={isInvalid}/>
+          <UsersCreate saveData={save} isRegisterMode={true} />
+        </div>
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -110,7 +132,7 @@ function LoginButton({isInvalid}) {
   const {pending} = useFormStatus();
  
   return (
-    <Button type='submit' className="mt-4 text-center" aria-disabled={pending} isInvalid={isInvalid} color={isInvalid ? "danger" : "success"} errorMessage="Wrong credentials. Please try again">
+    <Button type='submit' className="text-center" aria-disabled={pending} isInvalid={isInvalid} color={isInvalid ? "danger" : "success"} errorMessage="Wrong credentials. Please try again">
       Sign in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
