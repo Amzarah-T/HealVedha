@@ -65,7 +65,7 @@ function Footer() {
                     </div>
                 </div>
             </footer>
-            <ChatBot />
+            {/* <ChatBot /> */}
         </div>
     )
 }

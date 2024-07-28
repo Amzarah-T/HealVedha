@@ -19,6 +19,10 @@ export async function GET(request) {
       disease.diseaseTreatments.forEach(async (treatement) => {
           await model.DiseaseTreatment.create({...treatement, DiseaseId: created.id});
       })
+
+      disease.diseaseSymptoms.forEach(async (symptom) => {
+        await model.DiseaseSymptoms.create({...symptom, DiseaseId: created.id});
+    })
   })
 
     result = "Success";

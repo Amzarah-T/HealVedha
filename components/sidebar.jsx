@@ -11,6 +11,7 @@ import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function SideBar() {
+
     return (
         <section className="h-screen w-64 fixed left-0 top-0 bg-gray-800 overflow-y-auto mt-16">
             <nav className="mt-6">
@@ -33,12 +34,12 @@ export default function SideBar() {
                             <span>Diseases</span>
                         </Link>
                     </li>
-                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                    {/* <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Link href={'/manage/profile'} className='flex'>
                             <UsersIcon className="w-5 h-5 mr-3" />
                             <span>Profile</span>
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Link href={'/manage/herbs'} className='flex'>
                             <BeakerIcon className="w-5 h-5 mr-3" />
@@ -46,9 +47,15 @@ export default function SideBar() {
                         </Link>
                     </li>
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                        <Link href={'/manage/users'} className='flex'>
+                            <UsersIcon className="w-5 h-5 mr-3" />
+                            <span>Users</span>
+                        </Link>
+                    </li>
+                    <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Button onClick={signOut} color="warning" className='flex'>
-                            <ArrowLeftCircleIcon className="w-5 h-5 mr-3" />
-                            <span>Logout</span>
+                            <ArrowLeftCircleIcon className="h-5 mr-3" />
+                            <span>Sign Out</span>
                         </Button>
                     </li>
                 </ul>

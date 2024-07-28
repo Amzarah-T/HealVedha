@@ -11,14 +11,24 @@ import { authenticate } from '@/app/lib/actions';
 import { Button } from '@nextui-org/react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import UsersCreate from '@/components/users/create';
+import axios from 'axios';
  
 export default function LoginForm() {
   const processLogin = async (prevState, formData) => {
-    await authenticate(prevState, formData);
+    const error = await authenticate(prevState, formData);
+    
+    if (error) {
+      // throw new Error('Login failed. Please check your credentials.');
+      setIsInvalid(true)
+    } else {
+      window.location.reload();
+    }
   };
 
   const [errorMessage, dispatch] = useFormState(processLogin, undefined);
+  const [isInvalid, setIsInvalid] = useState(false);
   const session = useSession();
   const router = useRouter();
 
@@ -32,12 +42,29 @@ export default function LoginForm() {
   if (session.status === "authenticated") {
     router.push('/manage');
   }
+
+  const save = async (formData) => {
+      let data = {};
+      for (const [key, value] of formData
+      ) {
+          data[key] = value;
+          console.log(`${key}: ${value}\n`);
+        }
+      
+        const res = await axios.post('http://localhost:3000/api/public/users', {
+          username: formData.get('email'), 
+          email: formData.get('email'), 
+          firstName: formData.get('firstName'), 
+          userrole: formData.get('userrole'),
+          password: formData.get('password')
+      })
+  }
  
   return (
     <form action={dispatch} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
+      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8 max-w-xl m-auto my-20">
         <h1 className={`mb-3 text-2xl`}>
-          Please log in to continue.
+          Please sign in to continue.
         </h1>
         <div className="w-full">
           <div>
@@ -74,22 +101,25 @@ export default function LoginForm() {
                 name="password"
                 placeholder="Enter password"
                 required
-                minLength={6}
+                // minLength={6}
               />
               <KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
         </div>
-        <LoginButton />
+        <div className='mt-4 flex gap-5 items-center justify-between'>
+          <LoginButton isInvalid={isInvalid}/>
+          <UsersCreate saveData={save} isRegisterMode={true} />
+        </div>
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
           aria-atomic="true"
         >
-          {errorMessage && (
+          {isInvalid && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-              <p className="text-sm text-red-500">{errorMessage}</p>
+              <p className="text-sm text-red-500">{'Login failed. Please check your credentials.'}</p>
             </>
           )}
         </div>
@@ -98,12 +128,12 @@ export default function LoginForm() {
   );
 }
  
-function LoginButton() {
-  const { pending } = useFormStatus();
+function LoginButton({isInvalid}) {
+  const {pending} = useFormStatus();
  
   return (
-    <Button type='submit' className="mt-4 w-full" aria-disabled={pending}>
-      Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+    <Button type='submit' className="text-center" aria-disabled={pending} isInvalid={isInvalid} color={isInvalid ? "danger" : "success"} errorMessage="Wrong credentials. Please try again">
+      Sign in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
 }
