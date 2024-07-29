@@ -4,6 +4,7 @@ import Herb from "./Herb"
 import Disease from "./Disease"
 import DiseaseTreatment from "./DiseaseTreatment"
 import DiseaseSymptoms from "./DiseaseSymptoms"
+import ResearchPaper from "./ResearchPaper"
 
 export const initSequelize = async () => {
     User.hasMany(Post);
@@ -24,5 +25,6 @@ export const model = {
     Disease,
     DiseaseTreatment,
     DiseaseSymptoms,
-    Herb
+    Herb,
+    ResearchPaper
 }

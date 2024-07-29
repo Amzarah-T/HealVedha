@@ -34,7 +34,6 @@ function UsersCreate({ saveData, editData, deleteData, editMode, deleteMode, dat
                         <>
                             <ModalHeader className="flex flex-col gap-1">Register User</ModalHeader>
                             <ModalBody>
-                                {console.log("Printing dataObject", dataObject)}
                                 <form action={(formData) => {
                                     if (editMode) {
                                         editData(formData, dataObject);

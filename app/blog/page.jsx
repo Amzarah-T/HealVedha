@@ -1,3 +1,4 @@
+import LoggedInWrapper from "@/components/LoggedInWrapper";
 import { title } from "@/components/primitives";
 import { model } from "@/models";
 import { getImage } from "@/utils/validations";
@@ -7,7 +8,16 @@ import Link from "next/link";
 async function getData() {
   try {
     const result = await model.Post.findAll({ include: model.User });
-    const r = await model.User.findAll({ include: model.Post });
+
+    return result;
+  } catch (error) {
+    throw new Error('Failed to fetch data')
+  }
+}
+
+async function getPapersData() {
+  try {
+    const result = await model.ResearchPaper.findAll();
 
     return result;
   } catch (error) {
@@ -17,13 +27,14 @@ async function getData() {
 
 export default async function BlogPage() {
   const posts = await getData();
-  const papers = [
-    {
-      id: 1,
-      link: 'https://www.sciencedirect.com/topics/computer-science/research-paper',
-      title: 'Explore scientific, technical, and medical research on ScienceDirect'
-    }
-  ]
+  const papers = await getPapersData();
+  // const papers = [
+  //   {
+  //     id: 1,
+  //     link: 'https://www.sciencedirect.com/topics/computer-science/research-paper',
+  //     title: 'Explore scientific, technical, and medical research on ScienceDirect'
+  //   }
+  // ]
 
   return (
     <div>
@@ -44,10 +55,12 @@ export default async function BlogPage() {
 
         <h1 className="text-4xl font-bold my-6 text-left">Research Papers</h1>
         <ul className="text-left">
-          {papers.map((paper) => (
-            <li key={paper.id} className="pb-6 bg-white min-w-64 flex-1">
-              <h2 className="text-2xl font-semibold my-2">{paper.title}</h2>
-              <Link className="text-gray-700" href={paper.link} target="_blank">{paper.link}</Link>
+          {papers.map((paper, index) => (
+            <li key={paper.id} className="pb-4 bg-white min-w-64 flex-1">
+              <h2 className="text-2xl font-semibold my-2">{index + 1}) {paper.title}</h2>
+              <LoggedInWrapper message={<Link href={'/login'} className="text-blue-400">Login to Download</Link>}>
+                <Link className="text-blue-500 underline italic pl-5" href={paper.url.startsWith('http') ? paper.url : "/pdf/" + paper.url}  target="_blank">Download</Link>
+              </LoggedInWrapper>
             </li>
           ))}
         </ul>

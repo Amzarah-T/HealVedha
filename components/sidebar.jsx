@@ -5,11 +5,13 @@ import {
     KeyIcon,
     ExclamationCircleIcon,
     BeakerIcon,
+    DocumentChartBarIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@nextui-org/react';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import AdminOnlyWrapper from './AdminOnlyWrapper';
+import LoggedInWrapper from './LoggedInWrapper';
 
 export default function SideBar() {
 
@@ -17,13 +19,15 @@ export default function SideBar() {
         <section className="h-screen w-64 fixed left-0 top-0 bg-gray-800 overflow-y-auto mt-16">
             <nav className="mt-6">
                 <ul>
-                    <AdminOnlyWrapper>
+                    <LoggedInWrapper>
                         <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                             <Link href={'/manage'} className='flex'>
                                 <HomeIcon className="w-5 h-5 mr-3" />
                                 <span>Dashboard</span>
                             </Link>
                         </li>
+                    </LoggedInWrapper>
+                    <AdminOnlyWrapper>
                         <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                             <Link href={'/manage/posts'} className='flex'>
                                 <NewspaperIcon className="w-5 h-5 mr-3" />
@@ -36,12 +40,7 @@ export default function SideBar() {
                                 <span>Diseases</span>
                             </Link>
                         </li>
-                        {/* <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
-                            <Link href={'/manage/profile'} className='flex'>
-                                <UsersIcon className="w-5 h-5 mr-3" />
-                                <span>Profile</span>
-                            </Link>
-                        </li> */}
+                        
                         <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                             <Link href={'/manage/herbs'} className='flex'>
                                 <BeakerIcon className="w-5 h-5 mr-3" />
@@ -55,6 +54,21 @@ export default function SideBar() {
                             </Link>
                         </li>
                     </AdminOnlyWrapper>
+                    <LoggedInWrapper>
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/researchPapers'} className='flex'>
+                                <DocumentChartBarIcon className="w-5 h-5 mr-3" />
+                                <span>Research Papers</span>
+                            </Link>
+                        </li>
+
+                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                            <Link href={'/manage/profile'} className='flex'>
+                                <UsersIcon className="w-5 h-5 mr-3" />
+                                <span>Profile</span>
+                            </Link>
+                        </li>
+                    </LoggedInWrapper>
                     
                     <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                         <Button onClick={signOut} color="warning" className='flex'>

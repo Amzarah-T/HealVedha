@@ -34,6 +34,10 @@ export async function revalidatePosts() {
   revalidateTag('adminPosts')
 }
 
+export async function revalidateResearchPapers() {
+  revalidateTag('adminResearchPapers')
+}
+
 export async function revalidateServices() {
   revalidateTag('adminServices')
 }

@@ -27,7 +27,6 @@ function PostCreate({ savePost, editPost, deletePost, editMode, deleteMode, post
                         <>
                             <ModalHeader className="flex flex-col gap-1">Create Data</ModalHeader>
                             <ModalBody>
-                                {console.log("Printing post", post)}
                                 <form action={(formData) => {
                                     if (editMode) {
                                         editPost(formData, post);
