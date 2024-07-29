@@ -31,9 +31,17 @@ export default function Page() {
     const mainResult = results;
 
     const dt = mainResult.filter(dt => {
-      const isMatched = dt.titleEn.includes(searchVal) | dt.titleSn.includes(searchVal) | dt.titleTm.includes(searchVal);
+      let isMatched = dt.titleEn.includes(searchVal) | dt.titleSn.includes(searchVal) | dt.titleTm.includes(searchVal);
 
-      return isMatched;
+      const filteredTreatments = dt.DiseaseTreatments.filter((treatment) => {
+        return treatment.descEn.includes(searchVal) | treatment.descSn.includes(searchVal) | treatment.descTm.includes(searchVal)
+      });
+
+      const filteredSymptoms = dt.DiseaseSymptoms.filter((symptom) => {
+        return symptom.descEn.includes(searchVal) | symptom.descSn.includes(searchVal) | symptom.descTm.includes(searchVal)
+      })
+
+      return isMatched || filteredSymptoms.length > 0 || filteredTreatments.length > 0;
     })
 
     setFilteredData(dt);

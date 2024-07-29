@@ -55,6 +55,20 @@ export default function ServicesPage({ params }) {
                         ))}
                     </ul>
                 </div>
+
+                <div className="pt-10 container m-auto">
+                    <div className="text-left text-3xl pb-4">Symptoms</div>
+                    <ul className="space-y-4 flex flex-col">
+                        {result.DiseaseSymptoms?.map((dataObject) => (
+                            <li key={dataObject.id} className="p-6 bg-green-50 shadow-md min-w-64 flex-1">
+
+                                <h2 className="text-2xl font-semibold my-2">{dataObject.descEn}</h2>
+                                <p className="text-gray-700">{dataObject.descTm}</p>
+                                <p className="text-gray-700">{dataObject.descSn}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );
