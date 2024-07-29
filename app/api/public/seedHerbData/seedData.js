@@ -30,16 +30,6 @@ export const diseases = [
     }
 ]
 
-// export const herbs = [
-//     {
-//         labelEn: "herb 1",
-//         labelTm: "herb 1",
-//         labelSn: "herb 1",
-//         labelSc: "ddfdfdfdf",
-//         image: ""
-//     }
-// ]
-
 export const herbs = [
     {
         labelEn: "Abrus precatorious",
