@@ -57,7 +57,7 @@ export default function Page() {
             <li key={dataObject.id} className="p-6 bg-white rounded-lg shadow-md min-w-64 flex-1">
               <div
                 className="h-64 bg-cover bg-center rounded-lg bg-slate-100"
-                style={{ backgroundImage: `url(${getImage(dataObject.image)})` }}
+                style={{ backgroundImage: `url(${getImage(dataObject.image, '/images/herbs/')})` }}
               ></div>
               <h2 className="text-2xl font-semibold my-2">{dataObject.labelEn}</h2>
               <p className="text-gray-700">{dataObject.labelTm}</p>

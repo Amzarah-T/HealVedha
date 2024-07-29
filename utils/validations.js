@@ -6,7 +6,15 @@ export const isEmptyString = (data) => {
     );
 }
 
-export const getImage = (image) => {
-    console.log('image data', image)
-    return isEmptyString(image) ? 'https://i0.wp.com/sunrisedaycamp.org/wp-content/uploads/2020/10/placeholder.png?ssl=1' : image;
+export const getImage = (image, prefix) => {
+    console.log(image)
+    if (image?.startsWith('http')) {
+        return isEmptyString(image) ? 'https://i0.wp.com/sunrisedaycamp.org/wp-content/uploads/2020/10/placeholder.png?ssl=1' : image;
+    } else {
+        if (image) {
+            return prefix + image;
+        } else {
+            return 'https://i0.wp.com/sunrisedaycamp.org/wp-content/uploads/2020/10/placeholder.png?ssl=1'
+        }
+    }
 }
