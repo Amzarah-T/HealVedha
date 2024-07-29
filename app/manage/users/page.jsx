@@ -106,8 +106,6 @@ async function Page() {
                     </tbody>
                 </table>
             </div>
-
-            <div>Download</div>
         </div>
     )
 }

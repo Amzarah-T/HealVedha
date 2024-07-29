@@ -17,9 +17,9 @@ export const { signIn, signOut, auth, handlers } = NextAuth({
             data : {
               user: {
                 ID: response.id,
-                NAME: response.username,
+                NAME: response.firstName,
                 EMAIL: response.email,
-                USERROLE: response.userrole
+                USERROLE: response.userrole,
               },
             }
           }
