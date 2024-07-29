@@ -69,34 +69,34 @@ async function Page() {
 
     return (
         <div>
-            <div class="overflow-x-auto">
+            <div className="overflow-x-auto">
                 <div className="flex justify-between items-center px-10 py-10 ">
                     <div className="text-3xl text-left">Manage Users</div>
                     <UsersCreate saveData={save} />
                 </div>
-                <table class="min-w-full bg-white border-collapse border border-gray-200 shadow-md">
+                <table className="min-w-full bg-white border-collapse border border-gray-200 shadow-md">
                     <thead>
-                        <tr class="bg-gray-100">
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Id</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">First Name</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Email</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">User Role</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Actions</th>
+                        <tr className="bg-gray-100">
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Id</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">First Name</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Email</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">User Role</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {result.isLoading ? (
                             <tr>
-                                <td colSpan="4" class="border border-gray-300 px-4 py-2 text-center">Loading...</td>
+                                <td colSpan="4" className="border border-gray-300 px-4 py-2 text-center">Loading...</td>
                             </tr>
                         ) : (
                             result.data.result.map((dataObject, index) => (
-                                <tr key={index} class="bg-white hover:bg-gray-100">
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.id}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.firstName}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.email}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.userrole}</td>
-                                    <td class="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
+                                <tr key={index} className="bg-white hover:bg-gray-100">
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.id}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.firstName}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.email}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.userrole}</td>
+                                    <td className="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
                                         <UsersCreate editData={editData} editMode={true} dataObject={dataObject} />
                                         <UsersCreate deleteData={deleteData} deleteMode={true} dataObject={dataObject} />
                                     </td>
@@ -107,7 +107,7 @@ async function Page() {
                 </table>
             </div>
 
-
+            <div>Download</div>
         </div>
     )
 }

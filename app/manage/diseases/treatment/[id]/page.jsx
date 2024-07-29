@@ -84,7 +84,7 @@ async function Page({ params }) {
 
     return (
         <div>
-            <div class="overflow-x-auto">
+            <div className="overflow-x-auto">
                 <div className="flex justify-between items-center px-10 py-10 ">
                     <div className="text-left">
                         <Link href={'/manage/diseases/'}><Button variant='ghost' color="primary" radius='sm'>{'< Back'}</Button></Link>
@@ -92,29 +92,29 @@ async function Page({ params }) {
                     <div className="text-3xl text-left">Diseases and Treatments</div>
                     <DiseaseTreatmentCreate saveData={save} />
                 </div>
-                <table class="min-w-full bg-white border-collapse border border-gray-200 shadow-md">
+                <table className="min-w-full bg-white border-collapse border border-gray-200 shadow-md">
                     <thead>
-                        <tr class="bg-gray-100">
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Id</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">English</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Sinhala</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Tamil</th>
-                            <th class="border border-gray-300 px-4 py-2 text-slate-900">Actions</th>
+                        <tr className="bg-gray-100">
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Id</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">English</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Sinhala</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Tamil</th>
+                            <th className="border border-gray-300 px-4 py-2 text-slate-900">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {result.isLoading ? (
                             <tr>
-                                <td colSpan="4" class="border border-gray-300 px-4 py-2 text-center">Loading...</td>
+                                <td colSpan="4" className="border border-gray-300 px-4 py-2 text-center">Loading...</td>
                             </tr>
                         ) : (
                             result.data.result.map((dataObject, index) => (
-                                <tr key={index} class="bg-white hover:bg-gray-100">
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.id}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descEn}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descSn}</td>
-                                    <td class="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descTm}</td>
-                                    <td class="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
+                                <tr key={index} className="bg-white hover:bg-gray-100">
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.id}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descEn}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descSn}</td>
+                                    <td className="border border-gray-300 px-4 py-2 text-slate-950">{dataObject.descTm}</td>
+                                    <td className="border border-gray-300 px-4 py-2 gap-5 flex justify-center text-slate-950">
                                         <DiseaseTreatmentCreate editData={editData} editMode={true} dataObject={dataObject} />
                                         <DiseaseTreatmentCreate deleteData={deleteData} deleteMode={true} dataObject={dataObject} />
                                     </td>

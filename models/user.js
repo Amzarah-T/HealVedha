@@ -39,6 +39,6 @@ const User = sequelize.define("User", {
   }
 });
 
-User.associate 
+// User.associate 
 
 export default User;

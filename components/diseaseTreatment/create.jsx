@@ -25,7 +25,6 @@ function DiseaseTreatmentCreate({ saveData, editData, deleteData, editMode, dele
                         <>
                             <ModalHeader className="flex flex-col gap-1">Create Data</ModalHeader>
                             <ModalBody>
-                                {console.log("Printing dataObject", dataObject)}
                                 <form action={(formData) => {
                                     if (editMode) {
                                         editData(formData, dataObject);
