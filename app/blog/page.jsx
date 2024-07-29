@@ -58,7 +58,7 @@ export default async function BlogPage() {
           {papers.map((paper, index) => (
             <li key={paper.id} className="pb-4 bg-white min-w-64 flex-1">
               <h2 className="text-2xl font-semibold my-2">{index + 1}) {paper.title}</h2>
-              <LoggedInWrapper message={<Link href={'/login'} className="text-blue-400">Login to Download</Link>}>
+              <LoggedInWrapper message={<Link className="text-blue-500 underline italic pl-5" href={'/login'}>Download</Link>}>
                 <Link className="text-blue-500 underline italic pl-5" href={paper.url.startsWith('http') ? paper.url : "/pdf/" + paper.url}  target="_blank">Download</Link>
               </LoggedInWrapper>
             </li>
