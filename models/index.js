@@ -1,10 +1,10 @@
-import Post from "./Post"
-import User from "./User"
-import Herb from "./Herb"
-import Disease from "./Disease"
-import DiseaseTreatment from "./DiseaseTreatment"
-import DiseaseSymptoms from "./DiseaseSymptoms"
-import ResearchPaper from "./ResearchPaper"
+import Post from "./Post.js";
+import User from "./User.js";
+import Herb from "./Herb.js";
+import Disease from "./Disease.js";
+import DiseaseTreatment from "./DiseaseTreatment.js";
+import DiseaseSymptoms from "./DiseaseSymptoms.js";
+import ResearchPaper from "./ResearchPaper.js";
 
 export const initSequelize = async () => {
     User.hasMany(Post);
