@@ -2,15 +2,16 @@ import { Sequelize } from "sequelize";
 import mysql from 'mysql2';
 
 const sequelize = new Sequelize({
-    host: "localhost",
-    username: "root",
-    password: "root",
-    database: "heal-vedha",
+    host: process.env.DATABASE_HOST,
+    username: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
     dialect: "mysql",
-    port: 8889,
+    port: process.env.DATABASE_PORT,
     dialectModule: mysql,
     benchmark: true
 });
+
 (async () => {
     try {
         await sequelize.authenticate();
