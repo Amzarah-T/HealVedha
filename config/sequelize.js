@@ -4,10 +4,10 @@ import mysql from 'mysql2';
 const sequelize = new Sequelize({
     host: "localhost",
     username: "root",
-    password: "root",
-    database: "heal-vedha",
+    password: "24MY@root",
+    database: "heal_vedha",
     dialect: "mysql",
-    port: 8889,
+    port: 3306, 
     dialectModule: mysql,
     benchmark: true
 });

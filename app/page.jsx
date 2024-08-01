@@ -12,12 +12,12 @@ import { authConfig } from "@/auth.config";
 import { auth } from "@/auth";
 import { createPost } from "./lib/actions";
 import { model } from "@/models";
+import HerbalTipsCarrosal from "@/components/herbalTipsCarrosal";
 
 
 async function getData() {
   try {
     const result = await model.User.findAll({ include: model.Post });
-    console.log(result)
     const res = await axios.get('http://localhost:3000/api/public/welcome');
 
     return res.data;
@@ -50,104 +50,12 @@ export default async function Home() {
           </IsVisibleComponent>
         </div>
       </div>
-      <div className="flex min-h-screen flex-col items-center p-24">
+      <div className="flex min-h-screen flex-col items-center p-24 bg-green-800">
         <div>
           <h1 className=" text-3xl font-bold text-center">Herbal Tips</h1>
-          <div className="flex container p-10" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
-            <div className="mx-5" style={{ minWidth: 300 }}>
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src={image}
-                    width={270}
-                    height={270}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-
-            <div className="mx-5" style={{ minWidth: 300 }}>
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src={image}
-                    width={270}
-                    height={270}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-
-            <div className="mx-5" style={{ minWidth: 300 }}>
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src={image}
-                    width={270}
-                    height={270}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-
-            <div className="mx-5" style={{ minWidth: 300 }}>
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src={image}
-                    width={270}
-                    height={270}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-            <div className="mx-5" style={{ minWidth: 300 }}>
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src={image}
-                    width={270}
-                    height={270}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-          </div>
+          {/* <div className="flex container p-10" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}> */}
+          <HerbalTipsCarrosal />
+                   {/* </div> */}
         </div>
 
         <div>

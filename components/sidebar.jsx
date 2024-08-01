@@ -28,12 +28,12 @@ export default function SideBar() {
                         </li>
                     </LoggedInWrapper>
                     <AdminOnlyWrapper>
-                        <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
+                        {/* <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                             <Link href={'/manage/posts'} className='flex'>
                                 <NewspaperIcon className="w-5 h-5 mr-3" />
                                 <span>Blog</span>
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="flex items-center px-6 py-3 text-white hover:bg-gray-700 cursor-pointer">
                             <Link href={'/manage/diseases'} className='flex'>
                                 <NewspaperIcon className="w-5 h-5 mr-3" />

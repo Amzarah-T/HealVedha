@@ -28,9 +28,9 @@ function CarrosalView() {
 
             <div className="embla" ref={emblaRef}>
                 <div className="embla__container">
-                    <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundImage: `url(${image1})` }} >
+                    <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundSize: 'cover', backgroundImage: `url(${image1})` }} >
                         <IsVisibleComponent>
-                            <div className="pop-up text-4xl align-center bg-green-800/45 p-10 text-white">Herbal Message 1</div>
+                            <div className="pop-up text-4xl align-center bg-green-800/45 p-10 text-white">Welcome to Heal Vedha</div>
                         </IsVisibleComponent>
                     </div>
                     <div className="embla__slide">
@@ -40,14 +40,14 @@ function CarrosalView() {
                                 </IsVisibleComponent>
                             </div>
                     </div>
-                    <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundImage: `url(${image2})` }} >
+                    <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundSize: 'cover', backgroundImage: `url(${image2})` }} >
                         <IsVisibleComponent>
-                            <div className={`pop-up text-4xl align-center bg-green-800/45 p-10 text-white`}>Herbal Message 2</div>
+                            <div className={`pop-up text-4xl align-center bg-green-800/45 p-10 text-white`}>Best Herbal Services</div>
                         </IsVisibleComponent> 
                     </div>
-                    <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundImage: `url(${image3})` }} >
+                    <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '60vh', backgroundSize: 'cover', backgroundImage: `url(${image3})` }} >
                         <IsVisibleComponent>
-                            <div className="pop-up text-4xl align-center bg-green-800/45 p-10 text-white">Herbal Message 3</div>
+                            <div className="pop-up text-4xl align-center bg-green-800/45 p-10 text-white">Herbal Dictionaries and Diseases and Treatements</div>
                         </IsVisibleComponent>
                     </div>
                 </div>
