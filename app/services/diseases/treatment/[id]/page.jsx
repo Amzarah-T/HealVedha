@@ -42,10 +42,12 @@ export default function ServicesPage({ params }) {
                     className="h-64 bg-cover bg-center rounded-lg w-full mt-10"
                     style={{ backgroundImage: `url(${getImage(result.image)})` }}
                 ></div> */}
+                
+
                 <div className="pt-10 container m-auto">
-                    <div className="text-left text-3xl pb-4">Treatments</div>
+                    <div className="text-left text-3xl pb-4">Symptoms</div>
                     <ul className="space-y-4 flex flex-col">
-                        {result.DiseaseTreatments?.map((dataObject) => (
+                        {result.DiseaseSymptoms?.map((dataObject) => (
                             <li key={dataObject.id} className="p-6 bg-green-50 shadow-md min-w-64 flex-1">
 
                                 <h2 className="text-2xl font-semibold my-2">{dataObject.descEn}</h2>
@@ -57,9 +59,9 @@ export default function ServicesPage({ params }) {
                 </div>
 
                 <div className="pt-10 container m-auto">
-                    <div className="text-left text-3xl pb-4">Symptoms</div>
+                    <div className="text-left text-3xl pb-4">Treatments</div>
                     <ul className="space-y-4 flex flex-col">
-                        {result.DiseaseSymptoms?.map((dataObject) => (
+                        {result.DiseaseTreatments?.map((dataObject) => (
                             <li key={dataObject.id} className="p-6 bg-green-50 shadow-md min-w-64 flex-1">
 
                                 <h2 className="text-2xl font-semibold my-2">{dataObject.descEn}</h2>

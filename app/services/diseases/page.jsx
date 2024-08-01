@@ -62,12 +62,12 @@ export default function Page() {
 
         <ul className="space-y-6 flex flex-col md:flex-row gap-10 grid-cols-2 flex-wrap">
           {filteredData.map((dataObject) => (
-            <Link key={dataObject.id} href={'/services/diseases/treatment/' + dataObject.id} className="p-6 bg-white rounded-lg shadow-md min-w-64 flex-1">
+            <Link key={dataObject.id} href={'/services/diseases/treatment/' + dataObject.id} className="p-6 bg-green-400 hover:bg-green-200 cursor-pointer rounded-lg shadow-md min-w-64 flex-1">
               <li className="">
-                <div
+                {/* <div
                   className="h-64 bg-cover bg-center rounded-lg bg-slate-100"
                   style={{ backgroundImage: `url(${getImage(dataObject.image)})` }}
-                ></div>
+                ></div> */}
                 <h2 className="text-2xl font-semibold my-2">{dataObject.titleEn}</h2>
                 <p className="text-gray-700">{dataObject.titleTm}</p>
                 <p className="text-gray-700">{dataObject.titleSn}</p>

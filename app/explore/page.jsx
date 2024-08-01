@@ -15,7 +15,7 @@ import spaceylon from '@/public/images/stores/spaceylon.png';
 import swadeshi from '@/public/images/stores/swadeshi.png';
 
 import ayrvedaparagon from '@/public/images/hotels/ayrvedaparagon.webp';
-import ayulanka from '@/public/images/hotels/ayulanka.png';
+//import ayulanka from '@/public/images/hotels/ayulanka.png';
 import barberynreef from '@/public/images/hotels/barberynreef.webp';
 import heritance from '@/public/images/hotels/heritance.webp';
 import isolabella from '@/public/images/hotels/isolabella.jpg';
@@ -33,70 +33,70 @@ export default function ExplorePage() {
       image: ayush,
       link: 'https://ayush.lk/',
       alt: 'ayush',
-      description: "add descriptions if want"
+      description: "Ayush"
     },
     {
       id: 2,
       image: gampaha,
       link: 'https://www.gampahawickramaratchi.lk/',
       alt: 'gampaha',
-      description: "add descriptions if want"
+      description: "Gampaha Wickramaratchi"
     },
     {
       id: 3,
       image: herbal,
       link: 'https://herbal.lk/',
       alt: 'https://herbal.lk/',
-      description: "add descriptions if want"
+      description: "Herbal.lk"
     },
     {
       id: 4,
       image: himalaya,
       link: 'https://himalayawellness.in/',
       alt: 'https://himalayawellness.in/',
-      description: "add descriptions if want"
+      description: "Himalaya"
     },
     {
       id: 5,
       image: osuhala,
       link: 'https://osuhala.lk/',
       alt: 'https://osuhala.lk/',
-      description: "add descriptions if want"
+      description: "Osuhala"
     },
     {
       id: 6,
       image: sanjeewanie,
       link: 'https://local.sanjeewanieayurveda.com/',
       alt: 'https://local.sanjeewanieayurveda.com/',
-      description: "add descriptions if want"
+      description: "Sanjeewani Ayurveda"
     },
     {
       id: 7,
       image: SDC,
       link: 'https://sladc.lk/en/shop/',
       alt: 'https://sladc.lk/en/shop/',
-      description: "add descriptions if want"
+      description: "SriLanka Drug Coporation"
     },
     {
       id: 8,
       image: siddapella,
       link: 'https://siddhalepa.com/index.php/products',
       alt: 'https://siddhalepa.com/index.php/products',
-      description: "add descriptions if want"
+      description: "Siddalepa"
     },
     {
       id: 9,
       image: spaceylon,
       link: 'https://lk.spaceylon.com/',
       alt: 'https://lk.spaceylon.com/',
-      description: "add descriptions if want"
+      description: "Spa Ceylon"
     },
     {
       id: 10,
       image: swadeshi,
       link: 'https://swadeshiherbal.com/shop/',
       alt: 'https://swadeshiherbal.com/shop/',
-      description: "add descriptions if want"
+      description: "Swadeshi"
     }
   ];
 
@@ -106,73 +106,73 @@ export default function ExplorePage() {
       image: ayrvedaparagon,
       link: 'https://www.paragonsrilanka.com/',
       alt: 'https://www.paragonsrilanka.com/',
-      description: "add descriptions if want"
+      description: "The Ayurveda Paragon"
     },
-    {
+   /* {
       id: 2,
       image: ayulanka,
       link: '',
       alt: 'ayulanka',
       description: "add descriptions if want"
-    },
+    },*/
     {
       id: 3,
       image: barberynreef,
       link: 'https://www.barberynresorts.com/',
       alt: 'https://www.barberynresorts.com/',
-      description: "add descriptions if want"
+      description: "Barberyn Ayurveda Resorts"
     },
     {
       id: 4,
       image: heritance,
       link: 'https://www.heritancehotels.com/ayurveda/?utm_source=google&utm_medium=organic&utm_campaign=ayurveda&utm_term=gbp',
       alt: 'https://www.heritancehotels.com/ayurveda/?utm_source=google&utm_medium=organic&utm_campaign=ayurveda&utm_term=gbp',
-      description: "add descriptions if want"
+      description: "Heritance Hotels"
     },
     {
       id: 5,
       image: isolabella,
       link: 'https://www.isolabella-ayurveda.com/',
       alt: 'https://www.isolabella-ayurveda.com/',
-      description: "add descriptions if want"
+      description: "Isolabella Ayurveda Resort"
     },
     {
       id: 6,
       image: Karunalarala,
       link: 'https://karunakarala.com/sparesort/',
       alt: 'https://karunakarala.com/sparesort/',
-      description: "add descriptions if want"
+      description: "Karunakarala Ayurveda Resort"
     },
     {
       id: 7,
       image: LankaAyurveda,
       link: 'https://www.ayurveda-garden.de/',
       alt: 'https://www.ayurveda-garden.de/',
-      description: "add descriptions if want"
+      description: "Ayurveda Garden"
     },
     {
       id: 8,
       image: plamgarden,
       link: 'https://palmgarden-resort.com/',
       alt: 'https://palmgarden-resort.com/',
-      description: "add descriptions if want"
+      description: "Plam Garden Ayurveda"
     },
     {
       id: 9,
       image: siddhalepa,
       link: 'https://www.siddhaleparesort.com/',
       alt: 'https://www.siddhaleparesort.com/',
-      description: "add descriptions if want"
+      description: "Siddalepha Ayurveda Hotels"
     }
   ];
 
   return (
     <div>
       <div>
-        <h1 className="text-center text-4xl text-white p-10 bg-cyan-600">Discover and connect with online stores through HealVedha</h1>
+        <h1 className="text-center text-4xl text-white p-10 bg-green-600">Discover and connect with online stores through HealVedha</h1>
       </div>
       <div>
-        <h1 className="text-center text-3xl pt-10">Check Stores</h1>
+//        <h1 className="text-center text-3xl pt-10">Check Stores</h1>
         <div className="flex container pb-10 items-center" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
           {
             stores.map(store => {
@@ -200,10 +200,10 @@ export default function ExplorePage() {
       </div>
 
       <div>
-        <h1 className="text-center text-4xl text-white p-10 bg-teal-500">Connect with HealVedha for rejuvenating holidays at top Ayurvedic resorts and hotels</h1>
+        <h1 className="text-center text-4xl text-white p-10 bg-green-600">Connect with HealVedha for rejuvenating holidays at top Ayurvedic resorts and hotels</h1>
       </div>
       <div>
-        <h1 className="text-center text-3xl pt-10">Find a Holiday with a Hotel</h1>
+//      <h1 className="text-center text-3xl pt-10">Find a Holiday with a Hotel</h1>
         <div className="flex container pb-10 items-center" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
           {
             hotels.map(hotel => {

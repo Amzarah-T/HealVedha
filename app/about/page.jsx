@@ -65,7 +65,7 @@ Email: ${data.yourEmail}
             <Input type="tel" label="Phone Number" className="pb-4" name="phoneNumber" required/>
             <Textarea label="Enter your message" className="pb-4" name="message" required/>
             <div className="flex">
-              <Button type="submit" color="success" isLoading={loading}>Submit</Button>
+              <Button type="submit" color="primary" isLoading={loading}>Submit</Button>
               <div>
 
                 <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
