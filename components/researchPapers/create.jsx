@@ -23,7 +23,7 @@ function ResearchPapersCreate({ saveData, editData, deleteData, editMode, delete
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1">Register User</ModalHeader>
+                            <ModalHeader className="flex flex-col gap-1">Add Research Papers</ModalHeader>
                             <ModalBody>
                                 <form action={(formData) => {
                                     if (editMode) {

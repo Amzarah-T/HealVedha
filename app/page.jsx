@@ -15,22 +15,7 @@ import { model } from "@/models";
 import HerbalTipsCarrosal from "@/components/herbalTipsCarrosal";
 
 
-async function getData() {
-  try {
-    const result = await model.User.findAll({ include: model.Post });
-    const res = await axios.get('http://localhost:3000/api/public/welcome');
-
-    return res.data;
-  } catch (error) {
-    console.log('errrrr', error)
-    throw new Error('Failed to fetch data')
-  }
-}
-
 export default async function Home() {
-  const data = await getData();
-  const session = await auth();
-
   return (
     <main className="">
       <div className="text-foreground pop-up">
@@ -50,15 +35,15 @@ export default async function Home() {
           </IsVisibleComponent>
         </div>
       </div>
-      <div className="flex min-h-screen flex-col items-center p-24 bg-green-800">
+      <div className="flex  flex-col items-center p-24 bg-green-800">
         <div>
-          <h1 className=" text-3xl font-bold text-center">Herbal Tips</h1>
+          <h1 className=" text-4xl font-bold text-center text-white">Herbal Tips</h1>
           {/* <div className="flex container p-10" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}> */}
           <HerbalTipsCarrosal />
                    {/* </div> */}
         </div>
 
-        <div>
+        {/* <div>
           <h1 className=" text-3xl font-bold p-5 text-center">Why choose Ayurvedha?</h1>
           <div className="flex grid-cols-2 flex-wrap gap-3 justify-center">
             <div className="mx-5" style={{ minWidth: 300 }}>
@@ -134,7 +119,7 @@ export default async function Home() {
               </Card>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </main>
   );

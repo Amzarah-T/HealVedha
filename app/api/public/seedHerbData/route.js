@@ -9,21 +9,21 @@ export async function GET(request) {
   try {
     console.log('data seeding....');
 
-    herbs.forEach(async (herb) => {
-        await model.Herb.create(herb);
-    })
+    // herbs.forEach(async (herb) => {
+    //     await model.Herb.create(herb);
+    // })
     
-    diseases.forEach(async (disease) => {
-      let created = await model.Disease.create(disease);
+    // diseases.forEach(async (disease) => {
+    //   let created = await model.Disease.create(disease);
 
-      disease.diseaseTreatments.forEach(async (treatement) => {
-          await model.DiseaseTreatment.create({...treatement, DiseaseId: created.id});
-      })
+    //   disease.diseaseTreatments.forEach(async (treatement) => {
+    //       await model.DiseaseTreatment.create({...treatement, DiseaseId: created.id});
+    //   })
 
-      disease.diseaseSymptoms.forEach(async (symptom) => {
-        await model.DiseaseSymptoms.create({...symptom, DiseaseId: created.id});
-    })
-  })
+    //   disease.diseaseSymptoms.forEach(async (symptom) => {
+    //     await model.DiseaseSymptoms.create({...symptom, DiseaseId: created.id});
+    // })
+  // })
 
     result = "Success";
   } catch (error) {

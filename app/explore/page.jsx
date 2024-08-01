@@ -172,13 +172,13 @@ export default function ExplorePage() {
         <h1 className="text-center text-4xl text-white p-10 bg-green-600">Discover and connect with online stores through HealVedha</h1>
       </div>
       <div>
-//        <h1 className="text-center text-3xl pt-10">Check Stores</h1>
-        <div className="flex container pb-10 items-center" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
+        {/* <h1 className="text-center text-3xl pt-10">Check Stores</h1> */}
+        <div className="flex container pb-20 items-center pt-20" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
           {
             stores.map(store => {
               return (
                 <div key={store.id} className="mx-5" style={{ minWidth: 300 }}>
-                  <Card className="py-4">
+                  <Card className="py-4" style={{height:350}}>
                     <Link href={store.link} target='_blank'>
                       <CardBody className="overflow-visible py-2">
                         <Image
@@ -187,6 +187,7 @@ export default function ExplorePage() {
                           src={store.image}
                           width={270}
                           height={270}
+                          style={{height: 270}}
                         />
                         <div className="text-center py-4">{store.description}</div>
                       </CardBody>
@@ -203,13 +204,13 @@ export default function ExplorePage() {
         <h1 className="text-center text-4xl text-white p-10 bg-green-600">Connect with HealVedha for rejuvenating holidays at top Ayurvedic resorts and hotels</h1>
       </div>
       <div>
-//      <h1 className="text-center text-3xl pt-10">Find a Holiday with a Hotel</h1>
-        <div className="flex container pb-10 items-center" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
+{/*      <h1 className="text-center text-3xl pt-10">Find a Holiday with a Hotel</h1> */}
+        <div className="flex container pt-20 pb-20 items-center" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}>
           {
             hotels.map(hotel => {
               return (
                 <div key={hotel.id} className="mx-5" style={{ minWidth: 300 }}>
-                  <Card className="py-4">
+                  <Card className="py-4" style={{height:350}}>
                     <Link href={hotel.link} target='_blank'>
                       <CardBody className="overflow-visible py-2">
                         <Image
@@ -218,6 +219,7 @@ export default function ExplorePage() {
                           src={hotel.image}
                           width={270}
                           height={270}
+                          style={{height:270}}
                         />
                         <div className="text-center py-4">{hotel.description}</div>
                       </CardBody>
