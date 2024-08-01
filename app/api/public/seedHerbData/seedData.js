@@ -30,40 +30,7 @@
 //     }
 // ]
 
-<<<<<<< HEAD
 export const herbs = [
-=======
-// export const herbs = [
-//     {
-//         labelEn: "herb 1",
-//         labelTm: "herb 1",
-//         labelSn: "herb 1",
-//         labelSc: "ddfdfdfdf",
-//         image: ""
-//     }
-// ]
-
-export const diseases = [
-
-  // Disease 01
-      {
-          titleEn: " Sensation in leg",
-          titleSn: " පාදය පණ නෑ.",
-          titleTm: " கால் உணர்ச்சி இல்ல.",
-          diseaseTreatments: [
-              {
-                  descEn: "Symptoms : No sensation in right leg. 
-                                 Relief :Take 1 1/2 doses of castor root, mustard root, arat root, dry ginger, devadar, nikka root, garlic in the morning and evening, add sugar and honey and drink it for six days.Then in the morning and the evening eat one teaspoon of jagalyati krutham and drink boiled water with garlic. Drink two tablespoons of Ashwagandha at a time before lunch and dinner.Apply oil on scalp. A little castor, seed, a little bee, and a few pieces of coconut tied together, boiled in a pan, rubbed with corundum oil and applied to the hands in the morning and evening is good.",
-                  descSn: "රෝග ලක්ෂණ : දකුණු පාදය පණ නැති වී යාම.
-                                         විසඳුම :උදේ සවස එඬරු මුල්, බැවිල මුල්, කටුකරඩු මුල්, අරත්ත අල, වියළි ඉඟුරු, දේවදාර, නික මුල්, සුදුළූණු මේවා කලං 1 1/2 බැගින් ගෙන වතුර පත අට පතට සිඳවා පෙරා සීනි, මීපැණි දමා වරකට සීතාරාම ගුළි හතරක් දියකර දින හයක් බොන්න.ඉන්පසු උදේ - සවස ජාගල්‍යාදී ඝෘතය තේ හැඳි එක එක කාලා බැවිල මුල් සුදුළූණු තැම්බූ වතුර බොන්න.දවල්ට රෑට කෑමට පෙර අශ්වාගන්ධාරිෂ්ටය මේස හැඳි දෙක බැගින් වරකට බොන්න.හිසට මහා බලා තෛලය ගාන්න. එඬරු ඇට මද, මී ඇට මද, කොට්ට පොල් කොටා පොට්ටනි බැඳ වණ්ඩුවේ තම්බා තවා බලා කෝරණ්ඩ තෛලය ගාලා, උදේ සවස අතගෑම හොඳයි.",
-                  descTm: "அறிகுறி : வலது கால் உணர்ச்சி இல்ல.
-                                          நிவாரணம் : ஆமணக்கு வேர், கடுக்காய் வேர், அரத்த வேர், காய்ந்த இஞ்சி, தேவதாரு, நிக்கா வேர், பூண்டு இவைகளை காலை, மாலை 1 1/2 அளவு எடுத்து, அதனுடன் சர்க்கரை மற்றும் தேன் சேர்த்து ஆறு நாட்கள் குடிக்கவும்.பிறகு காலையிலும் மாலையிலும் ஒரு டீஸ்பூன் ஜகல்யாதி க்ருதத்தைச் சாப்பிட்டு, பூண்டைக் கொதிக்க வைத்த தண்ணீரைக் குடிக்கவும்.மதிய உணவு மற்றும் இரவு உணவிற்கு முன் ஒரு நேரத்தில் அஸ்வகந்தரிஷ்டவை இரண்டு தேக்கரண்டி குடிக்கவும்.தலையில் எண்ணெய் தடவவும். சிறிதளவு ஆமணக்கு, விதை, சிறிதளவு தேன் சிறிது தேங்காய்த்துண்டுகள் இவற்றை ஒன்றாகக் கட்டி, சட்டியில் வேகவைத்து, கொரண்டம் எண்ணெயில் தேய்த்து, காலையில் மற்றும் மாலையில் கைகளில் தடவுவது நல்லது."
-              }
-                                         ]
-        },
- 
-  // Disease 02
->>>>>>> main
     {
           titleEn: " Recurrent rash.",
           titleSn: " කලකට පෙර වැළඳි කුෂ්ඨ රෝගය නැවත හැදිලා.",
