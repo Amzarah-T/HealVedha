@@ -45,7 +45,7 @@ export default async function BlogPage() {
     <div>
       <div className="mx-auto p-6">
       <Image src={blogImg} alt="blog banner" className="w-screen" />
-      <p className="p-10 text-left mt-10">These articles are extracted from <Link  className="text-green-500 underline" href={'https://newsapi.org/'} target="_blank">https://newsapi.org/</Link></p>
+     {/* <p className="p-10 text-left mt-10">These articles are extracted from <Link  className="text-green-500 underline" href={'https://newsapi.org/'} target="_blank">https://newsapi.org/</Link></p>*/}
         <ul className="space-y-6 flex flex-col md:flex-row gap-10 grid-cols-2 flex-wrap pb-20">
           {posts.map((post) => (
             <li key={post.id} className="p-6 bg-white rounded-lg shadow-md min-w-64 flex-1">
@@ -60,15 +60,15 @@ export default async function BlogPage() {
           ))}
         </ul>
 
-        <Link className="text-green-500 underline cursor-pointer " href={'blog/more'}>View More Articles</Link>
+        <Link className="text-green-500 underline cursor-pointer pb-10" href={'blog/more'}>View More Articles</Link>
 
         <h1 className="text-4xl font-bold my-6 text-left">Research Papers</h1>
         <ul className="text-left">
           {papers.map((paper, index) => (
             <li key={paper.id} className="pb-4 bg-white min-w-64 flex-1">
               <h2 className="text-2xl font-semibold my-2">{index + 1}) {paper.title}</h2>
-              <LoggedInWrapper message={<Link className="text-blue-500 underline italic pl-5" href={'/login'}>Download</Link>}>
-                <Link className="text-blue-500 underline italic pl-5" href={paper.url.startsWith('http') ? paper.url : "/pdf/" + paper.url}  target="_blank">Download</Link>
+              <LoggedInWrapper message={<Link className="text-green-500 underline italic pl-5" href={'/login'}>View/Download</Link>}>
+                <Link className="text-green-500 underline italic pl-5" href={paper.url.startsWith('http') ? paper.url : "/pdf/" + paper.url}  target="_blank">Download</Link>
               </LoggedInWrapper>
             </li>
           ))}

@@ -35,7 +35,7 @@ export default async function Home() {
           </IsVisibleComponent>
         </div>
       </div>
-      <div className="flex  flex-col items-center p-24 bg-green-800">
+      <div className="flex  flex-col items-center p-24 bg-lime-600">
         <div>
           <h1 className=" text-4xl font-bold text-center text-white">Herbal Tips</h1>
           {/* <div className="flex container p-10" style={{ width: 'calc(100vw - 10px)', overflowX: 'scroll' }}> */}

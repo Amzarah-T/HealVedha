@@ -27,10 +27,10 @@ function HerbalTipsCarrosal() {
     return (
         <div>
             <div className="embla" ref={emblaRef}>
-                <div className="embla__container bg-green-800/45">
+                <div className="embla__container bg-lime-600">
                     <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '40vh' }} >
                         <IsVisibleComponent>
-                            <div className="pop-right text-4xl align-center bg-green-800/45 p-10 text-white">
+                            <div className="pop-right text-4xl align-center bg-lime-600 p-10 text-white">
                             <div className="mx-5" style={{ minWidth: 300 }}>
                                 <Card className="py-4">
                                     <CardBody className="overflow-visible py-2">
@@ -49,7 +49,7 @@ function HerbalTipsCarrosal() {
                     </div>
                     <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '40vh' }} >
                         <IsVisibleComponent>
-                            <div className="pop-right text-4xl align-center bg-green-800/45 p-10 text-white">
+                            <div className="pop-right text-4xl align-center bg-lime-600 p-10 text-white">
                             <div className="mx-5" style={{ minWidth: 300 }}>
                                 <Card className="py-4">
                                     <CardBody className="overflow-visible py-2">
@@ -68,7 +68,7 @@ function HerbalTipsCarrosal() {
                     </div>
                     <div className="embla__slide flex justify-center items-center" style={{ width: '100%', height: '40vh' }} >
                         <IsVisibleComponent>
-                            <div className="pop-right text-4xl align-center bg-green-800/45 p-10 text-white">
+                            <div className="pop-right text-4xl align-center bg-lime-600 p-10 text-white">
                             <div className="mx-5" style={{ minWidth: 300 }}>
                                 <Card className="py-4">
                                     <CardBody className="overflow-visible py-2">

@@ -38,10 +38,10 @@ Email: ${data.yourEmail}
 
   return (
     <div className="flex gap-4 text-left">
-      <div className="w-full">
+      <div className="w-full ">
         <h1 className="text-foreground text-4xl">About Us</h1>
         
-        <h3>Welcome to HealVedha! our comprehensive resource for all things Ayurveda. Our mission is to educate and inspire individuals about the profound benefits of Ayurveda, the ancient holistic healing system. We provide a wealth of information, including detailed articles on Ayurvedic treatments, access to research papers, and in-depth descriptions of various herbs. Our platform is dedicated to bridging traditional wisdom with modern science, offering you reliable, well-researched content to support your journey towards natural health and well-being. Join us in exploring the timeless practices of Ayurveda and discover the path to a balanced, harmonious life. </h3>
+        <h3 className="justify-between pb-10">Welcome to HealVedha! our comprehensive resource for all things Ayurveda. Our mission is to educate and inspire individuals about the profound benefits of Ayurveda, the ancient holistic healing system. We provide a wealth of information, including detailed articles on Ayurvedic treatments, access to research papers, and in-depth descriptions of various herbs. Our platform is dedicated to bridging traditional wisdom with modern science, offering you reliable, well-researched content to support your journey towards natural health and well-being. Join us in exploring the timeless practices of Ayurveda and discover the path to a balanced, harmonious life. </h3>
         
       </div>
       <div className="flex flex-wrap gap-3">
